@@ -1,0 +1,3 @@
+[submodule "src/Dota2GSI"]
+	path = src/Dota2GSI
+	url = git@github.com:rovany706/Dota2GSI.git
