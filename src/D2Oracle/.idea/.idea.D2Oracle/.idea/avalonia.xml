@@ -6,7 +6,9 @@
         <entry key="D2Oracle.UI/App.axaml" value="D2Oracle.UI/D2Oracle.UI.csproj" />
         <entry key="D2Oracle.UI/Views/MainWindow.axaml" value="D2Oracle.UI/D2Oracle.UI.csproj" />
         <entry key="D2Oracle/App.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/CurrentStateInfoView.axaml" value="D2Oracle/D2Oracle.csproj" />
         <entry key="D2Oracle/Views/MainWindow.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/NotConnectedView.axaml" value="D2Oracle/D2Oracle.csproj" />
       </map>
     </option>
   </component>

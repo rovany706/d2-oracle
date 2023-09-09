@@ -4,7 +4,7 @@ namespace D2Oracle.Core.GSI;
 
 public class GSIListener : IDisposable
 {
-    public GameStateListener GameStateListener { get; } = new(56775);
+    public GameStateListener GameStateListener { get; } = new(3000);
 
     public void Dispose()
     {

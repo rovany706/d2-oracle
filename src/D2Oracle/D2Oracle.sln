@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2Oracle.UI", "D2Oracle.UI\D2Oracle.UI.csproj", "{7148450E-E086-427F-92DE-8026F856DD02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2Oracle", "D2Oracle\D2Oracle.csproj", "{7148450E-E086-427F-92DE-8026F856DD02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2Oracle.Core", "D2Oracle.Core\D2Oracle.Core.csproj", "{290CD425-5326-4F64-9479-329A06FE9B16}"
 EndProject

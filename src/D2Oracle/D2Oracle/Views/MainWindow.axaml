@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:D2Oracle.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:D2Oracle.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="D2Oracle.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/logo.ico"
+        Title="D2Oracle">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <views:CurrentStateInfoView DataContext="{Binding CurrentStateInfoViewModel}"
+                                    IsEnabled="{Binding $parent.((vm:MainWindowViewModel)DataContext).IsConnected}"
+                                    IsVisible="{Binding $parent.((vm:MainWindowViewModel)DataContext).IsConnected}" />
+        <views:NotConnectedView IsEnabled="{Binding !IsConnected}" IsVisible="{Binding !IsConnected}" />
+    </Grid>
+</Window>
