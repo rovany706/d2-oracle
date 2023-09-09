@@ -26,23 +26,10 @@ public partial class App : Application
             {
                 DataContext = GetRequiredService<MainWindowViewModel>()
             };
-
-            ConfigureServices();
         }
 
         base.OnFrameworkInitializationCompleted();
     }
-
-    private void ConfigureServices()
-    {
-        //var services = new ServiceCollection();
-
-        //services.AddSingleton<IDotaGSIService>(x => new DotaGSIService(3000));
-
-        //Services = services.BuildServiceProvider();
-    }
-
-    public IServiceProvider? Services { get; private set; }
     
     private static T GetRequiredService<T>() => Locator.Current.GetRequiredService<T>();
 }
