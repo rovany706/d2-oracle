@@ -6,14 +6,16 @@ using Microsoft.Extensions.Configuration;
 
 namespace D2Oracle.Services;
 
-public class DotaGSIService : IDotaGSIService
+public class DotaGSIService : IDotaGSIService, IDisposable
 {
     private const int DefaultPort = 3000;
     public DotaGSIService(IConfiguration configuration)
     {
         var port = GetPortFromConfiguration(configuration);
         GameStateListener = new GameStateListener(port);
-        GameStateObservable = Observable.FromEventPattern<GameState>(GameStateListener, nameof(GameStateListener.NewGameState));
+        GameStateObservable = Observable
+            .FromEventPattern<GameState>(GameStateListener, nameof(GameStateListener.NewGameState))
+            .Select(x => x.EventArgs);
         GameStateListener.Start();
     }
 
@@ -26,5 +28,10 @@ public class DotaGSIService : IDotaGSIService
     }
 
     private GameStateListener GameStateListener { get; }
-    public IObservable<EventPattern<GameState>> GameStateObservable { get; }
+    public IObservable<GameState> GameStateObservable { get; }
+
+    public void Dispose()
+    {
+        GameStateListener.Dispose();
+    }
 }

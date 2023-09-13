@@ -6,5 +6,5 @@ namespace D2Oracle.Services;
 
 public interface IDotaGSIService
 {
-    public IObservable<EventPattern<GameState>> GameStateObservable { get; }
+    public IObservable<GameState> GameStateObservable { get; }
 }

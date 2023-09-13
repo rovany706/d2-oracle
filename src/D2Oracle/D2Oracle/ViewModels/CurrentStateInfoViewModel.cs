@@ -10,7 +10,7 @@ public class CurrentStateInfoViewModel : ViewModelBase
     public CurrentStateInfoViewModel(IDotaGSIService dotaGsiService)
     {
         _time = dotaGsiService.GameStateObservable
-            .Select(x => TimeSpan.FromSeconds(x.EventArgs.Map.ClockTime).ToString())
+            .Select(x => TimeSpan.FromSeconds(x.Map.ClockTime).ToString())
             .ToProperty(this, x => x.Time);
     }
     
