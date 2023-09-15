@@ -7,9 +7,17 @@
              x:DataType="vm:CurrentStateInfoViewModel"
              xmlns:vm="using:D2Oracle.ViewModels">
     <Design.DataContext>
-        <vm:CurrentStateInfoViewModel/>
+        <vm:CurrentStateInfoViewModel />
     </Design.DataContext>
-    <Grid>
-        <TextBlock Text="{Binding Time}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <TextBlock Text="time"/>
+            <TextBlock Text="{Binding Time}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Image Source="/Assets/roshan_icon.png" Height="32" Width="32" />
+            <TextBlock />
+            <Button Command="{Binding PlayMinRoshanTimeSound}">Play</Button>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -1,30 +1,21 @@
 ﻿using System;
-using System.Reactive;
 using System.Reactive.Linq;
+using D2Oracle.Configuration;
 using Dota2GSI;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace D2Oracle.Services;
 
 public class DotaGSIService : IDotaGSIService, IDisposable
 {
-    private const int DefaultPort = 3000;
-    public DotaGSIService(IConfiguration configuration)
+    public DotaGSIService(IOptions<DotaConnectionOptions> options)
     {
-        var port = GetPortFromConfiguration(configuration);
+        var port = options.Value.Port;
         GameStateListener = new GameStateListener(port);
         GameStateObservable = Observable
             .FromEventPattern<GameState>(GameStateListener, nameof(GameStateListener.NewGameState))
             .Select(x => x.EventArgs);
         GameStateListener.Start();
-    }
-
-    private static int GetPortFromConfiguration(IConfiguration configuration)
-    {
-        var value = configuration["Port"];
-        var isSuccess = int.TryParse(value, out var port);
-
-        return isSuccess ? port : DefaultPort;
     }
 
     private GameStateListener GameStateListener { get; }
@@ -33,5 +24,6 @@ public class DotaGSIService : IDotaGSIService, IDisposable
     public void Dispose()
     {
         GameStateListener.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

@@ -15,9 +15,10 @@
     </Design.DataContext>
 
     <Grid>
-        <views:CurrentStateInfoView DataContext="{Binding CurrentStateInfoViewModel}"
-                                    IsEnabled="{Binding $parent.((vm:MainWindowViewModel)DataContext).IsConnected}"
-                                    IsVisible="{Binding $parent.((vm:MainWindowViewModel)DataContext).IsConnected}" />
+        <ContentControl Content="{Binding CurrentStateInfoViewModel}"
+                        IsEnabled="{Binding IsConnected}"
+                        IsVisible="{Binding IsConnected}" />
+        
         <views:NotConnectedView IsEnabled="{Binding !IsConnected}" IsVisible="{Binding !IsConnected}" />
     </Grid>
 </Window>
