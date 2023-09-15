@@ -5,19 +5,19 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="D2Oracle.Views.CurrentStateInfoView"
              x:DataType="vm:CurrentStateInfoViewModel"
-             xmlns:vm="using:D2Oracle.ViewModels">
+             xmlns:vm="using:D2Oracle.ViewModels"
+             xmlns:assets="clr-namespace:D2Oracle.Assets">
     <Design.DataContext>
         <vm:CurrentStateInfoViewModel />
     </Design.DataContext>
     <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-            <TextBlock Text="time"/>
+            <TextBlock Text="{x:Static assets:Resources.Time}"/>
             <TextBlock Text="{Binding Time}" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
             <Image Source="/Assets/roshan_icon.png" Height="32" Width="32" />
             <TextBlock />
-            <Button Command="{Binding PlayMinRoshanTimeSound}">Play</Button>
         </StackPanel>
     </Grid>
 </UserControl>

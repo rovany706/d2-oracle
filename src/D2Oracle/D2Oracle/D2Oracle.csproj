@@ -44,14 +44,16 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Dota2GSI\Dota2GSI\Dota2GSI\Dota2GSI.csproj" />
+    </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Update="Assets\Resources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
+        <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
     </ItemGroup>
-
 
     <ItemGroup>
       <Compile Update="Assets\Resources.Designer.cs">
@@ -59,11 +61,6 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>
       </Compile>
-    </ItemGroup>
-
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\Dota2GSI\Dota2GSI\Dota2GSI\Dota2GSI.csproj" />
     </ItemGroup>
     
 </Project>

@@ -1,4 +1,5 @@
 using D2Oracle.Services;
+using D2Oracle.Services.Audio;
 using D2Oracle.Services.Roshan;
 using D2Oracle.ViewModels;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ public static class DependencyInjection
     {
         services.AddSingleton<IDotaGSIService, DotaGSIService>();
         services.AddSingleton<IRoshanTimerService, RoshanTimerService>();
+        services.AddSingleton<IDotaAudioService, DotaAudioService>();
 
         return services;
     }
