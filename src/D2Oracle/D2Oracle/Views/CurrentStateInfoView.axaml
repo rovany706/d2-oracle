@@ -28,6 +28,7 @@
             <TextBlock Text="{Binding HeroName}" FontWeight="Bold" />
             <TextBlock Text="{Binding Gpm, StringFormat={x:Static d2Oracle:Resources.GpmFormat}}" />
             <TextBlock Text="{Binding Xpm, StringFormat={x:Static d2Oracle:Resources.XpmFormat}}" />
+            <TextBlock Text="{Binding NetWorth, StringFormat={x:Static d2Oracle:Resources.NetWorthFormat}}" />
         </StackPanel>
     </Grid>
 </UserControl>

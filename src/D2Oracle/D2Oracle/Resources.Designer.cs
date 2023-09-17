@@ -69,6 +69,15 @@ namespace D2Oracle {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Net worth: {0}.
+        /// </summary>
+        public static string NetWorthFormat {
+            get {
+                return ResourceManager.GetString("NetWorthFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not connected to Dota 2.
         /// </summary>
         public static string NotConnected {

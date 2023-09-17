@@ -33,4 +33,7 @@
     <data name="RoshanAlive" xml:space="preserve">
         <value>Alive</value>
     </data>
+    <data name="NetWorthFormat" xml:space="preserve">
+        <value>Net worth: {0}</value>
+    </data>
 </root>

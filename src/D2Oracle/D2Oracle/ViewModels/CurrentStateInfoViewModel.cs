@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
 using D2Oracle.Services;
 using D2Oracle.Services.Audio;
+using D2Oracle.Services.DotaKnowledge;
 using D2Oracle.Services.Roshan;
+using Dota2GSI.Nodes.Items;
 using ReactiveUI;
 
 namespace D2Oracle.ViewModels;
@@ -11,6 +15,8 @@ public class CurrentStateInfoViewModel : ViewModelBase
 {
     private readonly IRoshanTimerService roshanTimerService;
     private readonly IDotaAudioService audioService;
+    private readonly IDotaKnowledgeService dotaKnowledgeService;
+    private readonly NetWorthCalculator netWorthCalculator;
 
     /// <summary>
     /// Constructor for designer
@@ -21,32 +27,35 @@ public class CurrentStateInfoViewModel : ViewModelBase
             .Never<string>()
             .StartWith("34:30")
             .ToProperty(this, x => x.Time);
-        
+
         this.heroName = Observable
             .Never<string>()
             .StartWith("Pudge")
             .ToProperty(this, x => x.HeroName);
-        
+
         this.gpm = Observable
             .Never<uint>()
-            .StartWith((uint) 500)
+            .StartWith((uint)500)
             .ToProperty(this, x => x.Gpm);
-        
+
         this.xpm = Observable
             .Never<uint>()
-            .StartWith((uint) 600)
+            .StartWith((uint)600)
             .ToProperty(this, x => x.Xpm);
-        
+
         this.roshanTimerService = new MockRoshanTimerService();
         this.audioService = new MockDotaAudioService();
     }
 
     public CurrentStateInfoViewModel(IDotaGsiService dotaGsiService, IRoshanTimerService roshanTimerService,
-        IDotaAudioService audioService)
+        IDotaAudioService audioService, IDotaKnowledgeService dotaKnowledgeService,
+        NetWorthCalculator netWorthCalculator)
     {
         this.roshanTimerService = roshanTimerService;
         this.audioService = audioService;
-        
+        this.dotaKnowledgeService = dotaKnowledgeService;
+        this.netWorthCalculator = netWorthCalculator;
+
         InitializeProperties(dotaGsiService);
         Subscribe();
     }
@@ -58,7 +67,9 @@ public class CurrentStateInfoViewModel : ViewModelBase
             .ToProperty(this, x => x.Time);
 
         this.heroName = dotaGsiService.GameStateObservable
-            .Select(x => x?.Hero?.Name ?? string.Empty)
+            .Select(x =>
+                dotaKnowledgeService.Heroes.SingleOrDefault(hero => hero.Name.Equals(x?.Hero?.Name))?.LocalizedName ??
+                string.Empty)
             .ToProperty(this, x => x.HeroName);
 
         this.gpm = dotaGsiService.GameStateObservable
@@ -68,6 +79,11 @@ public class CurrentStateInfoViewModel : ViewModelBase
         this.xpm = dotaGsiService.GameStateObservable
             .Select(x => x?.Player?.Xpm ?? 0)
             .ToProperty(this, x => x.Xpm);
+
+        this.netWorth = dotaGsiService.GameStateObservable
+            .Select(x => netWorthCalculator.Calculate(x?.Player?.Gold ?? 0,
+                x?.Items?.MainItems.Union(x.Items.StashItems) ?? new List<DotaItem>()))
+            .ToProperty(this, x => x.NetWorth);
     }
 
     private void Subscribe()
@@ -114,7 +130,7 @@ public class CurrentStateInfoViewModel : ViewModelBase
     private ObservableAsPropertyHelper<string> heroName;
 
     public string HeroName => heroName.Value;
-    
+
     private ObservableAsPropertyHelper<uint> gpm;
 
     public uint Gpm => gpm.Value;
@@ -122,7 +138,11 @@ public class CurrentStateInfoViewModel : ViewModelBase
     private ObservableAsPropertyHelper<uint> xpm;
 
     public uint Xpm => xpm.Value;
-    
+
+    private ObservableAsPropertyHelper<uint> netWorth;
+
+    public uint NetWorth => netWorth.Value;
+
     private static string FormatDotaTime(TimeSpan? time)
     {
         if (time is null) return string.Empty;
