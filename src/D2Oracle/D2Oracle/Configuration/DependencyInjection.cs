@@ -20,7 +20,7 @@ public static class DependencyInjection
 
     public static IServiceCollection AddAppServices(this IServiceCollection services)
     {
-        services.AddSingleton<IDotaGSIService, DotaGSIService>();
+        services.AddSingleton<IDotaGsiService, DotaGsiService>();
         services.AddSingleton<IRoshanTimerService, RoshanTimerService>();
         services.AddSingleton<IDotaAudioService, DotaAudioService>();
 

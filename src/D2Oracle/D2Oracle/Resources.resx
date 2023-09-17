@@ -24,4 +24,13 @@
     <data name="NotConnected" xml:space="preserve">
         <value>Not connected to Dota 2</value>
     </data>
+    <data name="GpmFormat" xml:space="preserve">
+        <value>GPM: {0}</value>
+    </data>
+    <data name="XpmFormat" xml:space="preserve">
+        <value>XPM: {0}</value>
+    </data>
+    <data name="RoshanAlive" xml:space="preserve">
+        <value>Alive</value>
+    </data>
 </root>

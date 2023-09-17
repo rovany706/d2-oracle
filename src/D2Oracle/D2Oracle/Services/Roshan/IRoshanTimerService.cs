@@ -2,13 +2,17 @@ using System;
 
 namespace D2Oracle.Services.Roshan;
 
-public interface IRoshanTimerService : IDotaGameStateObserver
+public interface IRoshanTimerService
 {
     event EventHandler MinRoshanRespawnTimeReached;
 
     event EventHandler MaxRoshanRespawnTimeReached;
-    
-    TimeSpan? MinRoshanRespawnTime { get; }
 
-    TimeSpan? MaxRoshanRespawnTime { get; }
+    event EventHandler RoshanKilled;
+    
+    TimeSpan? MinRoshanRespawnClockTime { get; }
+
+    TimeSpan? MaxRoshanRespawnClockTime { get; }
+    
+    bool IsRoshanAlive { get; }
 }

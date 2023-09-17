@@ -36,10 +36,10 @@
       <None Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\ba_dum_tss.wav">
+      <None Update="Resources\8min.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\8min.mp3">
+      <None Update="Resources\11min.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
@@ -49,14 +49,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Assets\Resources.resx">
+      <EmbeddedResource Update="Resources.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Assets\Resources.Designer.cs">
+      <Compile Update="Resources.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>

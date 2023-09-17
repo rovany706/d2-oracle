@@ -9,7 +9,7 @@ public class MainWindowViewModel : ViewModelBase
 {
     private bool isConnected;
     
-    public MainWindowViewModel(IDotaGSIService dotaGsiService, CurrentStateInfoViewModel currentStateInfoViewModel)
+    public MainWindowViewModel(IDotaGsiService dotaGsiService, CurrentStateInfoViewModel currentStateInfoViewModel)
     {
         CurrentStateInfoViewModel = currentStateInfoViewModel;
         dotaGsiService.GameStateObservable

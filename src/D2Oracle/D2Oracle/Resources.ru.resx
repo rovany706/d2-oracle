@@ -11,10 +11,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="NotConnected" xml:space="preserve">
+        <value>Нет подключения к Dota 2</value>
+    </data>
     <data name="Time" xml:space="preserve">
         <value>Время</value>
     </data>
-    <data name="NotConnected" xml:space="preserve">
-        <value>Нет подключения к Dota 2</value>
+    <data name="RoshanAlive" xml:space="preserve">
+        <value>Жив</value>
     </data>
 </root>

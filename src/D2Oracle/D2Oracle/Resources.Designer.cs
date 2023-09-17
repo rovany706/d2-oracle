@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace D2Oracle.Assets {
+namespace D2Oracle {
     using System;
     
     
@@ -38,7 +38,7 @@ namespace D2Oracle.Assets {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("D2Oracle.Assets.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("D2Oracle.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,6 +60,15 @@ namespace D2Oracle.Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GPM: {0}.
+        /// </summary>
+        public static string GpmFormat {
+            get {
+                return ResourceManager.GetString("GpmFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not connected to Dota 2.
         /// </summary>
         public static string NotConnected {
@@ -69,11 +78,29 @@ namespace D2Oracle.Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alive.
+        /// </summary>
+        public static string RoshanAlive {
+            get {
+                return ResourceManager.GetString("RoshanAlive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Time.
         /// </summary>
         public static string Time {
             get {
                 return ResourceManager.GetString("Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XPM: {0}.
+        /// </summary>
+        public static string XpmFormat {
+            get {
+                return ResourceManager.GetString("XpmFormat", resourceCulture);
             }
         }
     }

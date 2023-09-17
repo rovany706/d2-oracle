@@ -6,18 +6,28 @@
              x:Class="D2Oracle.Views.CurrentStateInfoView"
              x:DataType="vm:CurrentStateInfoViewModel"
              xmlns:vm="using:D2Oracle.ViewModels"
-             xmlns:assets="clr-namespace:D2Oracle.Assets">
+             xmlns:d2Oracle="clr-namespace:D2Oracle">
     <Design.DataContext>
         <vm:CurrentStateInfoViewModel />
     </Design.DataContext>
-    <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="10">
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-            <TextBlock Text="{x:Static assets:Resources.Time}"/>
+            <TextBlock Text="{x:Static d2Oracle:Resources.Time}" FontWeight="Bold"/>
             <TextBlock Text="{Binding Time}" />
+            
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Image Source="/Assets/roshan_icon.png" Height="32" Width="32" VerticalAlignment="Center" Margin="5" />
+                <Grid Margin="5">
+                    <TextBlock Text="{x:Static d2Oracle:Resources.RoshanAlive}" IsVisible="{Binding !IsRoshanEstTimeVisible}" VerticalAlignment="Center" />
+                    <TextBlock Text="{Binding EstimatedRoshanRespawnTime}" IsVisible="{Binding IsRoshanEstTimeVisible}" VerticalAlignment="Center" />
+                </Grid>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
-            <Image Source="/Assets/roshan_icon.png" Height="32" Width="32" />
-            <TextBlock />
+        
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="{Binding HeroName}" FontWeight="Bold" />
+            <TextBlock Text="{Binding Gpm, StringFormat={x:Static d2Oracle:Resources.GpmFormat}}" />
+            <TextBlock Text="{Binding Xpm, StringFormat={x:Static d2Oracle:Resources.XpmFormat}}" />
         </StackPanel>
     </Grid>
 </UserControl>

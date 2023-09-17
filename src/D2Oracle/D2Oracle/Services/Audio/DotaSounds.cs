@@ -10,7 +10,7 @@ public enum DotaSoundType
 
 public static class DotaSounds
 {
-    public static Dictionary<DotaSoundType, string> DotaSoundsFileNames = new()
+    public static readonly Dictionary<DotaSoundType, string> DotaSoundsFileNames = new()
     {
         { DotaSoundType.MinRoshanTime, "8min.mp3" },
         { DotaSoundType.MaxRoshanTime, "11min.mp3" }
