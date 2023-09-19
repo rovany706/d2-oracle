@@ -1,0 +1,25 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d2Oracle="clr-namespace:D2Oracle"
+             xmlns:dashboard="clr-namespace:D2Oracle.ViewModels.Dashboard"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="D2Oracle.Views.Dashboard.HeroStatsCardView"
+             x:DataType="dashboard:HeroStatsCardViewModel">
+    <Design.DataContext>
+        <dashboard:HeroStatsCardViewModel />
+    </Design.DataContext>
+    <Border Classes="Card">
+        <StackPanel>
+            <TextBlock Classes="h1"
+                       Text="{Binding HeroName}" />
+            <TextBlock Classes="h4"
+                       Text="{Binding Gpm, StringFormat={x:Static d2Oracle:Resources.GpmFormat}}" />
+            <TextBlock Classes="h4"
+                       Text="{Binding Xpm, StringFormat={x:Static d2Oracle:Resources.XpmFormat}}" />
+            <TextBlock Classes="h4"
+                       Text="{Binding NetWorth, StringFormat={x:Static d2Oracle:Resources.NetWorthFormat}}" />
+        </StackPanel>
+    </Border>
+</UserControl>

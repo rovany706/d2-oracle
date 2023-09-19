@@ -1,0 +1,42 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d2Oracle="clr-namespace:D2Oracle"
+             xmlns:material="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:dashboard="clr-namespace:D2Oracle.ViewModels.Dashboard"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="D2Oracle.Views.Dashboard.TimingsCardView"
+             x:DataType="dashboard:TimingsCardViewModel">
+    <Design.DataContext>
+        <dashboard:TimingsCardViewModel />
+    </Design.DataContext>
+    <Border Classes="Card">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{x:Static d2Oracle:Resources.Timings}" Classes="h1" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <material:MaterialIcon Kind="Clock" Margin="5" />
+                    <TextBlock Text="{Binding Time}" Classes="h4" />
+                </StackPanel>
+
+                <suki:CircleProgressBar Height="130" StrokeWidth="11" Value="{Binding RoshanRespawnEstimatedPercent}" Width="130">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
+                        <Image Source="/Assets/roshan_icon.png"
+                               Height="32"
+                               Width="32"
+                               VerticalAlignment="Center"
+                               Margin="5" />
+                        <Grid Margin="5">
+                            <TextBlock Text="{x:Static d2Oracle:Resources.RoshanAlive}"
+                                       IsVisible="{Binding !IsRoshanEstimatedTimeVisible}" 
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding EstimatedRoshanRespawnTime}"
+                                       IsVisible="{Binding IsRoshanEstimatedTimeVisible}"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
+                </suki:CircleProgressBar>
+            </StackPanel>
+        </Border>
+</UserControl>

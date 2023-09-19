@@ -3,6 +3,7 @@ using D2Oracle.Services.Audio;
 using D2Oracle.Services.DotaKnowledge;
 using D2Oracle.Services.Roshan;
 using D2Oracle.ViewModels;
+using D2Oracle.ViewModels.Dashboard;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +19,9 @@ public static class DependencyInjection
         services.Configure<DotaConnectionOptions>(
             configuration.GetSection(DotaConnectionOptions.DotaConnectionSectionName));
 
+        services.Configure<SoundsOptions>(
+            configuration.GetSection(SoundsOptions.SoundsOptionsSectionName));
+        
         return services;
     }
 
@@ -35,7 +39,12 @@ public static class DependencyInjection
     public static IServiceCollection AddAppViewModels(this IServiceCollection services)
     {
         services.AddTransient<MainWindowViewModel>();
+        services.AddTransient<DashboardPageViewModel>();
         services.AddTransient<CurrentStateInfoViewModel>();
+        services.AddTransient<SettingsViewModel>();
+        services.AddTransient<TimingsCardViewModel>();
+        services.AddTransient<HeroStatsCardViewModel>();
+        services.AddTransient<HeroDiagramsCardViewModel>();
 
         return services;
     }

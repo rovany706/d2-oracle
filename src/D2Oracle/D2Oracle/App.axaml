@@ -10,6 +10,7 @@
     </Application.DataTemplates>
   
     <Application.Styles>
-        <FluentTheme />
+        <!-- <FluentTheme /> -->
+        <StyleInclude Source="avares://SukiUI/Theme/Index.xaml" />
     </Application.Styles>
 </Application>

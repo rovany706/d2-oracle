@@ -3,22 +3,56 @@
         xmlns:vm="using:D2Oracle.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
         xmlns:views="using:D2Oracle.Views"
+        xmlns:d2Oracle="clr-namespace:D2Oracle"
+        xmlns:dashboard="clr-namespace:D2Oracle.Views.Dashboard"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="D2Oracle.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        Classes="NakedWindow Blurred"
         Icon="/Assets/logo.ico"
-        Title="D2Oracle">
+        Title="{x:Static d2Oracle:Resources.AppName}">
 
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
     <Grid>
-        <ContentControl Content="{Binding CurrentStateInfoViewModel}"
-                        IsEnabled="{Binding IsConnected}"
-                        IsVisible="{Binding IsConnected}" />
-        
-        <views:NotConnectedView IsEnabled="{Binding !IsConnected}" IsVisible="{Binding !IsConnected}" />
+        <suki:DesktopPage
+            Title="D2Oracle"
+            LogoColor="#2f54eb"
+            LogoKind="Eye"
+            MenuVisibility="False"
+            ShowBottomBorder="False">
+            <suki:SideMenu
+                WinUIStyle="True">
+                <suki:SideMenu.DataContext>
+                    <suki:SideMenuModel>
+                        <suki:SideMenuModel.HeaderContent>
+                            <TextBlock Text="{x:Static d2Oracle:Resources.AppName}" Classes="h3"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </suki:SideMenuModel.HeaderContent>
+                        <suki:SideMenuModel.MenuItems>
+                            <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}" Icon="CircleOutline">
+                                <suki:SideMenuItem.Content>
+                                    <dashboard:DashboardView />
+                                </suki:SideMenuItem.Content>
+                            </suki:SideMenuItem>
+                        </suki:SideMenuModel.MenuItems>
+
+                        <suki:SideMenuModel.FooterMenuItems>
+                            <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}" Icon="Settings">
+                                <suki:SideMenuItem.Content>
+                                    <views:SettingsView />
+                                </suki:SideMenuItem.Content>
+                            </suki:SideMenuItem>
+                        </suki:SideMenuModel.FooterMenuItems>
+
+                    </suki:SideMenuModel>
+                </suki:SideMenu.DataContext>
+            </suki:SideMenu>
+        </suki:DesktopPage>
+
     </Grid>
 </Window>

@@ -18,8 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Time" xml:space="preserve">
-        <value>Time</value>
+    <data name="Timings" xml:space="preserve">
+        <value>Timings</value>
     </data>
     <data name="NotConnected" xml:space="preserve">
         <value>Not connected to Dota 2</value>
@@ -35,5 +35,17 @@
     </data>
     <data name="NetWorthFormat" xml:space="preserve">
         <value>Net worth: {0}</value>
+    </data>
+    <data name="AppName" xml:space="preserve">
+        <value>D2Oracle</value>
+    </data>
+    <data name="Dashboard" xml:space="preserve">
+        <value>Dashboard</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="NetWorth" xml:space="preserve">
+        <value>Net worth</value>
     </data>
 </root>

@@ -1,0 +1,17 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dashboard="clr-namespace:D2Oracle.ViewModels.Dashboard"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="D2Oracle.Views.Dashboard.CurrentStateInfoView"
+             x:DataType="dashboard:CurrentStateInfoViewModel">
+    <Design.DataContext>
+        <dashboard:CurrentStateInfoViewModel />
+    </Design.DataContext>
+    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Margin="10">
+        <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding TimingsCardViewModel}" />
+        <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding HeroStatsCardViewModel}" />
+        <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding HeroDiagramsCardViewModel}" />
+    </Grid>
+</UserControl>

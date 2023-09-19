@@ -23,12 +23,15 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.4" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.4" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+        <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc1" />
+        <PackageReference Include="Material.Icons.Avalonia" Version="2.0.1" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
         <PackageReference Include="NetCoreAudio" Version="1.7.0" />
+        <PackageReference Include="SukiUI" Version="5.0.4" />
     </ItemGroup>
 
 
@@ -66,6 +69,14 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Dashboard\DashboardView.axaml.cs">
+        <DependentUpon>DashboardView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dashboard\CurrentStateInfoView.axaml.cs">
+        <DependentUpon>CurrentStateInfoView.axaml</DependentUpon>
+        <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
     

@@ -6,9 +6,19 @@
         <entry key="D2Oracle.UI/App.axaml" value="D2Oracle.UI/D2Oracle.UI.csproj" />
         <entry key="D2Oracle.UI/Views/MainWindow.axaml" value="D2Oracle.UI/D2Oracle.UI.csproj" />
         <entry key="D2Oracle/App.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Controls/CircularProgressBar.axaml" value="D2Oracle/D2Oracle.csproj" />
         <entry key="D2Oracle/Views/CurrentStateInfoView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/Dashboard/CurrentStateInfoView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/Dashboard/DashboardView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/Dashboard/HeroDiagramsCardView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/Dashboard/HeroDiagramsView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/Dashboard/HeroStatsCardView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/Dashboard/TimingsCardView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/DashboardPage.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/DashboardView.axaml" value="D2Oracle/D2Oracle.csproj" />
         <entry key="D2Oracle/Views/MainWindow.axaml" value="D2Oracle/D2Oracle.csproj" />
         <entry key="D2Oracle/Views/NotConnectedView.axaml" value="D2Oracle/D2Oracle.csproj" />
+        <entry key="D2Oracle/Views/SettingsView.axaml" value="D2Oracle/D2Oracle.csproj" />
       </map>
     </option>
   </component>

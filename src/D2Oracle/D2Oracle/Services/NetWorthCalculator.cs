@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using D2Oracle.Services.DotaKnowledge;
+using Dota2GSI;
 using Dota2GSI.Nodes.Items;
 
 namespace D2Oracle.Services;
@@ -14,8 +14,16 @@ public class NetWorthCalculator
         this.dotaKnowledgeService = dotaKnowledgeService;
     }
 
-    public uint Calculate(uint gold, IEnumerable<DotaItem> items)
+    public uint Calculate(GameState? gameState)
     {
+        if (gameState?.Items is null || gameState.Player is null)
+        {
+            return 0;
+        }
+
+        var items = gameState.Items.MainItems.Union(gameState.Items.StashItems);
+        var gold = gameState.Player.Gold;
+        
         var itemDescriptions = items.Select(GetItemDescription);
 
         return gold + (uint) itemDescriptions.Sum(x => x?.Cost ?? 0);

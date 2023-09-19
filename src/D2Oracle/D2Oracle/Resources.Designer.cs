@@ -60,11 +60,38 @@ namespace D2Oracle {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to D2Oracle.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        public static string Dashboard {
+            get {
+                return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GPM: {0}.
         /// </summary>
         public static string GpmFormat {
             get {
                 return ResourceManager.GetString("GpmFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Net worth.
+        /// </summary>
+        public static string NetWorth {
+            get {
+                return ResourceManager.GetString("NetWorth", resourceCulture);
             }
         }
         
@@ -96,11 +123,20 @@ namespace D2Oracle {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string Time {
+        public static string Settings {
             get {
-                return ResourceManager.GetString("Time", resourceCulture);
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timings.
+        /// </summary>
+        public static string Timings {
+            get {
+                return ResourceManager.GetString("Timings", resourceCulture);
             }
         }
         

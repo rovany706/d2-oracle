@@ -14,10 +14,16 @@
     <data name="NotConnected" xml:space="preserve">
         <value>Нет подключения к Dota 2</value>
     </data>
-    <data name="Time" xml:space="preserve">
-        <value>Время</value>
+    <data name="Timings" xml:space="preserve">
+        <value>Тайминги</value>
     </data>
     <data name="RoshanAlive" xml:space="preserve">
         <value>Жив</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Настройки</value>
+    </data>
+    <data name="Dashboard" xml:space="preserve">
+        <value>Главная</value>
     </data>
 </root>
