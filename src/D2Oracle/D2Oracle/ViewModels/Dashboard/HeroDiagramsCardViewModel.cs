@@ -4,6 +4,7 @@ using System.Linq;
 using D2Oracle.Extensions;
 using D2Oracle.Services;
 using Dota2GSI;
+using Dota2GSI.Nodes;
 using LiveChartsCore;
 using LiveChartsCore.Kernel;
 using LiveChartsCore.SkiaSharpView;
@@ -27,7 +28,7 @@ public class HeroDiagramsCardViewModel : ViewModelBase
         {
             new LineSeries<NetWorthSample>
             {
-                Values = netWorthValuesPerSecond,
+                Values = this.netWorthValuesPerSecond,
                 Mapping = (sample, chartPoint) =>
                     chartPoint.Coordinate = new Coordinate(sample.ClockTime, sample.NetWorth),
                 LineSmoothness = 1,
@@ -37,20 +38,36 @@ public class HeroDiagramsCardViewModel : ViewModelBase
 
         NetWorthXAxes = new[]
             { new Axis { Labeler = value => TimeSpan.FromSeconds(value).FormatAsDotaTime() } };
-        
+
         NetWorthYAxes = new[] { new Axis { Name = Resources.NetWorth } };
     }
 
     private void OnNewGameState(GameState? gameState)
     {
         // Reset graph if not in game
-        if (!gameState.IsInGame() && netWorthValuesPerSecond.Any())
+        if (!gameState.IsInGame())
         {
-            netWorthValuesPerSecond.Clear();
+            ClearGraph();
+
+            return;
         }
 
-        netWorthValuesPerSecond.Add(new NetWorthSample(gameState?.Map?.ClockTime ?? 0,
-            netWorthCalculator.Calculate(gameState)));
+        // Do not count net worth before game start
+        if (gameState?.Map?.GameState != DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
+        {
+            return;
+        }
+
+        this.netWorthValuesPerSecond.Add(new NetWorthSample(gameState.Map.ClockTime,
+            this.netWorthCalculator.Calculate(gameState)));
+    }
+
+    private void ClearGraph()
+    {
+        if (this.netWorthValuesPerSecond.Any())
+        {
+            this.netWorthValuesPerSecond.Clear();
+        }
     }
 
     public ObservableCollection<ISeries> NetWorthSeries { get; }

@@ -15,7 +15,7 @@ public class DashboardPageViewModel : ViewModelBase
         
         dotaGsiService.GameStateObservable
             .Select(_ => IsConnected = true)
-            .Throttle(TimeSpan.FromSeconds(5))
+            .Throttle(TimeSpan.FromSeconds(10))
             .Subscribe(_ => IsConnected = false);
     }
     
