@@ -80,7 +80,7 @@ public class TimingsCardViewModel : ViewModelBase
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)
     {
-        return gameState?.Map?.ClockTime / this.roshanTimerService.MaxRoshanRespawnClockTime?.Seconds ?? 100;
+        return gameState?.Map?.ClockTime / this.roshanTimerService.MaxRoshanRespawnClockTime?.Seconds * 100 ?? 100;
     }
 
     private readonly ObservableAsPropertyHelper<string> time;
