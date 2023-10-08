@@ -6,7 +6,7 @@
              x:Class="D2Oracle.Views.Dashboard.HeroDiagramsCardView"
              x:DataType="dashboard:HeroDiagramsCardViewModel"
              xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
-             xmlns:dashboard="clr-namespace:D2Oracle.ViewModels.Dashboard">
+             xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core">
     <Border Classes="Card">
         <lvc:CartesianChart Series="{Binding NetWorthSeries}" XAxes="{Binding NetWorthXAxes}" YAxes="{Binding NetWorthYAxes}" />
     </Border>

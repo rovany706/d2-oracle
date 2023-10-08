@@ -30,7 +30,6 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-        <PackageReference Include="NetCoreAudio" Version="1.7.0" />
         <PackageReference Include="SukiUI" Version="5.0.4" />
     </ItemGroup>
 
@@ -39,22 +38,11 @@
       <None Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\8min.mp3">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\11min.mp3">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\items.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\heroes.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\Dota2GSI\Dota2GSI\Dota2GSI\Dota2GSI.csproj" />
+      <ProjectReference Include="..\D2Oracle.Core\D2Oracle.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

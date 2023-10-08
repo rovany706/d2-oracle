@@ -1,49 +1,52 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:D2Oracle.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
         xmlns:views="using:D2Oracle.Views"
         xmlns:d2Oracle="clr-namespace:D2Oracle"
         xmlns:dashboard="clr-namespace:D2Oracle.Views.Dashboard"
+        xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels;assembly=D2Oracle.Core"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="D2Oracle.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
+        x:DataType="viewModels:MainWindowViewModel"
         Classes="NakedWindow"
         Icon="/Assets/logo.ico"
         Title="{x:Static d2Oracle:Resources.AppName}">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel />
+        <viewModels:MainWindowViewModel />
     </Design.DataContext>
 
     <Grid>
-            <suki:SideMenu>
-                <suki:SideMenu.DataContext>
-                    <suki:SideMenuModel>
-                        <suki:SideMenuModel.HeaderContent>
+        <suki:SideMenu>
+            <suki:SideMenu.DataContext>
+                <suki:SideMenuModel>
+                    <suki:SideMenuModel.HeaderContent>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/logo.ico" Width="32" Height="32" HorizontalAlignment="Center" />
                             <TextBlock Text="{x:Static d2Oracle:Resources.AppName}" Classes="h3"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </suki:SideMenuModel.HeaderContent>
-                        <suki:SideMenuModel.MenuItems>
-                            <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}" Icon="CircleOutline">
-                                <suki:SideMenuItem.Content>
-                                    <dashboard:DashboardView />
-                                </suki:SideMenuItem.Content>
-                            </suki:SideMenuItem>
-                        </suki:SideMenuModel.MenuItems>
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </suki:SideMenuModel.HeaderContent>
+                    <suki:SideMenuModel.MenuItems>
+                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}" Icon="CircleOutline">
+                            <suki:SideMenuItem.Content>
+                                <dashboard:DashboardView />
+                            </suki:SideMenuItem.Content>
+                        </suki:SideMenuItem>
+                    </suki:SideMenuModel.MenuItems>
 
-                        <suki:SideMenuModel.FooterMenuItems>
-                            <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}" Icon="Settings">
-                                <suki:SideMenuItem.Content>
-                                    <views:SettingsView />
-                                </suki:SideMenuItem.Content>
-                            </suki:SideMenuItem>
-                        </suki:SideMenuModel.FooterMenuItems>
+                    <suki:SideMenuModel.FooterMenuItems>
+                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}" Icon="Settings">
+                            <suki:SideMenuItem.Content>
+                                <views:SettingsView />
+                            </suki:SideMenuItem.Content>
+                        </suki:SideMenuItem>
+                    </suki:SideMenuModel.FooterMenuItems>
 
-                    </suki:SideMenuModel>
-                </suki:SideMenu.DataContext>
-            </suki:SideMenu>
+                </suki:SideMenuModel>
+            </suki:SideMenu.DataContext>
+        </suki:SideMenu>
     </Grid>
 </Window>

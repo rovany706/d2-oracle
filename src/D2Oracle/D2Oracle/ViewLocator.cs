@@ -1,7 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using D2Oracle.ViewModels;
+using D2Oracle.Core.ViewModels;
 
 namespace D2Oracle;
 

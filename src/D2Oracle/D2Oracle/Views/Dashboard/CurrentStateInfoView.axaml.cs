@@ -1,6 +1,5 @@
 ﻿using Avalonia.ReactiveUI;
-using D2Oracle.ViewModels;
-using D2Oracle.ViewModels.Dashboard;
+using D2Oracle.Core.ViewModels.Dashboard;
 
 namespace D2Oracle.Views.Dashboard;
 
