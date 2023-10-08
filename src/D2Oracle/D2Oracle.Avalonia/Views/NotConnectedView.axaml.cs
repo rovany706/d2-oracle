@@ -2,11 +2,11 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace D2Oracle.Views.Dashboard;
+namespace D2Oracle.Avalonia.Views;
 
-public partial class TimingsCardView : UserControl
+public partial class NotConnectedView : UserControl
 {
-    public TimingsCardView()
+    public NotConnectedView()
     {
         InitializeComponent();
     }

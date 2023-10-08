@@ -2,7 +2,7 @@
 using Avalonia.ReactiveUI;
 using System;
 
-namespace D2Oracle;
+namespace D2Oracle.Avalonia;
 
 class Program
 {

@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2Oracle", "D2Oracle\D2Oracle.csproj", "{7148450E-E086-427F-92DE-8026F856DD02}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2Oracle.Avalonia", "D2Oracle.Avalonia\D2Oracle.Avalonia.csproj", "{7148450E-E086-427F-92DE-8026F856DD02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dota2GSI", "..\Dota2GSI\Dota2GSI\Dota2GSI\Dota2GSI.csproj", "{D7F23E29-050B-47DD-8D76-DFBBBD1F3548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dota2GSI", "..\Dota2GSI\Dota2GSI\Dota2GSI\Dota2GSI.csproj", "{D7F23E29-050B-47DD-8D76-DFBBBD1F3548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2Oracle.Core", "D2Oracle.Core\D2Oracle.Core.csproj", "{12C98F2C-7167-490C-A25E-8A7A8B8F46A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D2Oracle.Core", "D2Oracle.Core\D2Oracle.Core.csproj", "{12C98F2C-7167-490C-A25E-8A7A8B8F46A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +27,8 @@ Global
 		{12C98F2C-7167-490C-A25E-8A7A8B8F46A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C98F2C-7167-490C-A25E-8A7A8B8F46A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C98F2C-7167-490C-A25E-8A7A8B8F46A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace D2Oracle.Views.Dashboard;
+namespace D2Oracle.Avalonia.Views.Dashboard;
 
 public partial class HeroDiagramsCardView : UserControl
 {

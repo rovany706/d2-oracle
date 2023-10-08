@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Views.Dashboard.CurrentStateInfoView"
+             x:Class="D2Oracle.Avalonia.Views.Dashboard.CurrentStateInfoView"
              x:DataType="dashboard:CurrentStateInfoViewModel">
     <Design.DataContext>
         <dashboard:CurrentStateInfoViewModel />

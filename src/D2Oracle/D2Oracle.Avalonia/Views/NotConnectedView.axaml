@@ -2,10 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d2Oracle="using:D2Oracle"
-             xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels;assembly=D2Oracle.Core"
+             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Views.SettingsView"
-             DataContext="{d2Oracle:DISource Type=viewModels:SettingsViewModel}">
-    Settings
+             x:Class="D2Oracle.Avalonia.Views.NotConnectedView">
+    <TextBlock Text="{x:Static d2Oracle:Resources.NotConnected}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 </UserControl>
