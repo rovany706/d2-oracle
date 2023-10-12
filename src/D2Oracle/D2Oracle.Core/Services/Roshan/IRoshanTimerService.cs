@@ -12,5 +12,7 @@ public interface IRoshanTimerService
 
     TimeSpan? MaxRoshanRespawnClockTime { get; }
     
+    TimeSpan? RoshanLastDeathClockTime { get; }
+    
     bool IsRoshanAlive { get; }
 }

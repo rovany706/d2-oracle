@@ -79,7 +79,11 @@ public class TimingsCardViewModel : ViewModelBase
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)
     {
-        return gameState?.Map?.ClockTime / this.roshanTimerService.MaxRoshanRespawnClockTime?.Seconds * 100 ?? 100;
+        var clockTimeDeltaRelativeToDeath = gameState?.Map?.ClockTime - roshanTimerService.RoshanLastDeathClockTime?.TotalSeconds;
+        var respawnTimeRelativeToDeath = this.roshanTimerService.MaxRoshanRespawnClockTime?.TotalSeconds -
+                                         roshanTimerService.RoshanLastDeathClockTime?.TotalSeconds;
+        
+        return (int?)(clockTimeDeltaRelativeToDeath / respawnTimeRelativeToDeath * 100) ?? 100;
     }
 
     private readonly ObservableAsPropertyHelper<string> time;

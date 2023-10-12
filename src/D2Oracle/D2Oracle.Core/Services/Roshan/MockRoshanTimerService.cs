@@ -12,5 +12,7 @@ public class MockRoshanTimerService : IRoshanTimerService
 
     public TimeSpan? MaxRoshanRespawnClockTime => TimeSpan.FromMinutes(11);
     
+    public TimeSpan? RoshanLastDeathClockTime => TimeSpan.FromMinutes(10);
+
     public bool IsRoshanAlive { get; }
 }

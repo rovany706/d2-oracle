@@ -9,7 +9,6 @@ public class RoshanTimerService : IRoshanTimerService
     private const int MinRoshanRespawnTimeInMinutes = 8;
     private const int MaxRoshanRespawnTimeInMinutes = 11;
 
-    private TimeSpan? roshanLastDeathClockTime;
     private bool isNotifiedAboutMinRoshanRespawnTime;
     private bool isNotifiedAboutMaxRoshanRespawnTime;
 
@@ -24,19 +23,21 @@ public class RoshanTimerService : IRoshanTimerService
 
     public event EventHandler? RoshanKilled;
 
-    public TimeSpan? MinRoshanRespawnClockTime => this.roshanLastDeathClockTime?
+    public TimeSpan? MinRoshanRespawnClockTime => RoshanLastDeathClockTime?
         .Add(TimeSpan.FromMinutes(MinRoshanRespawnTimeInMinutes));
 
-    public TimeSpan? MaxRoshanRespawnClockTime => this.roshanLastDeathClockTime?
+    public TimeSpan? MaxRoshanRespawnClockTime => RoshanLastDeathClockTime?
         .Add(TimeSpan.FromMinutes(MaxRoshanRespawnTimeInMinutes));
+    
+    public TimeSpan? RoshanLastDeathClockTime { get; private set; }
 
-    public bool IsRoshanAlive => roshanLastDeathClockTime is null;
+    public bool IsRoshanAlive => RoshanLastDeathClockTime is null;
 
     private void ProcessGameState(GameState? gameState)
     {
         if (gameState?.Map is null || !gameState.IsInGame())
         {
-            roshanLastDeathClockTime = null;
+            RoshanLastDeathClockTime = null;
             
             return;
         }
@@ -62,7 +63,7 @@ public class RoshanTimerService : IRoshanTimerService
     {
         if (!this.isNotifiedAboutMaxRoshanRespawnTime && currentTime > MaxRoshanRespawnClockTime)
         {
-            roshanLastDeathClockTime = null; // Roshan 100% respawned
+            RoshanLastDeathClockTime = null; // Roshan 100% respawned
             MaxRoshanRespawnTimeReached?.Invoke(this, EventArgs.Empty);
             this.isNotifiedAboutMaxRoshanRespawnTime = true;
         }
@@ -84,7 +85,7 @@ public class RoshanTimerService : IRoshanTimerService
 
     private void RegisterRoshanDeath(int deathTime)
     {
-        this.roshanLastDeathClockTime = TimeSpan.FromSeconds(deathTime);
+        RoshanLastDeathClockTime = TimeSpan.FromSeconds(deathTime);
         this.isNotifiedAboutMinRoshanRespawnTime = this.isNotifiedAboutMaxRoshanRespawnTime = false;
     }
 }
