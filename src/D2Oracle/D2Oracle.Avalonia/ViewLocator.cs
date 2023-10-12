@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using D2Oracle.Core.ViewModels;
@@ -9,8 +11,8 @@ public class ViewLocator : IDataTemplate
 {
     public Control Build(object data)
     {
-        var name = data.GetType().FullName!.Replace("ViewModel", "View");
-        var type = Type.GetType(name);
+        var name = data.GetType().Name!.Replace("ViewModel", "View");
+        var type = Assembly.GetEntryAssembly()!.GetTypes().SingleOrDefault(x => x.Name == name);
 
         if (type != null)
         {
