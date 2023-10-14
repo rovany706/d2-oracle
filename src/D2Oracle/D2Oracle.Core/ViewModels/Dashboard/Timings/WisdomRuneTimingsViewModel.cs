@@ -4,6 +4,7 @@ using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.Audio;
 using D2Oracle.Core.Services.Timers.Runes;
 using Dota2GSI;
+using Dota2GSI.Nodes;
 using ReactiveUI;
 
 namespace D2Oracle.Core.ViewModels.Dashboard.Timings;
@@ -65,7 +66,7 @@ public class WisdomRuneTimingsViewModel : ViewModelBase
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)
     {
-        if (gameState?.Map is null)
+        if (gameState?.Map is null || gameState?.Map?.GameState != DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
         {
             return 100;
         }
