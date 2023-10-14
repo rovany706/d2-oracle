@@ -2,9 +2,9 @@
 using Dota2GSI;
 using Dota2GSI.Nodes.Items;
 
-namespace D2Oracle.Core.Services;
+namespace D2Oracle.Core.Services.NetWorth;
 
-public class NetWorthCalculator
+public class NetWorthCalculator : INetWorthCalculator
 {
     private const string AghanimsShardName = "item_aghanims_shard";
     private readonly IDotaKnowledgeService dotaKnowledgeService;

@@ -1,4 +1,6 @@
-namespace D2Oracle.Core.Services.Roshan;
+using Dota2GSI;
+
+namespace D2Oracle.Core.Services.Timers.Roshan;
 
 public class MockRoshanTimerService : IRoshanTimerService
 {
@@ -14,5 +16,5 @@ public class MockRoshanTimerService : IRoshanTimerService
     
     public TimeSpan? RoshanLastDeathClockTime => TimeSpan.FromMinutes(10);
 
-    public bool IsRoshanAlive { get; }
+    public bool IsRoshanAlive => false;
 }

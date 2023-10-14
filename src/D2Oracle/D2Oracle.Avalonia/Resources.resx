@@ -48,4 +48,7 @@
     <data name="NetWorth" xml:space="preserve">
         <value>Net worth</value>
     </data>
+    <data name="NextRuneAtFormat" xml:space="preserve">
+        <value>Next: {0}</value>
+    </data>
 </root>

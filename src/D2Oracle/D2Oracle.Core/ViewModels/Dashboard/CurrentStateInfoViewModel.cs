@@ -1,4 +1,6 @@
-﻿namespace D2Oracle.Core.ViewModels.Dashboard;
+﻿using D2Oracle.Core.ViewModels.Dashboard.Timings;
+
+namespace D2Oracle.Core.ViewModels.Dashboard;
 
 public class CurrentStateInfoViewModel : ViewModelBase
 {

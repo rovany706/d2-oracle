@@ -13,8 +13,10 @@
         Classes="Blurred"
         ExtendClientAreaToDecorationsHint="False"
         Icon="/Assets/logo.ico"
-        Title="{x:Static d2Oracle:Resources.AppName}">
-
+        Title="{x:Static d2Oracle:Resources.AppName}"
+        MinHeight="600"
+        MinWidth="800">
+    
     <Design.DataContext>
         <viewModels:MainWindowViewModel />
     </Design.DataContext>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using D2Oracle.Core.Extensions;
 using D2Oracle.Core.Services;
+using D2Oracle.Core.Services.NetWorth;
 using Dota2GSI;
 using Dota2GSI.Nodes;
 using LiveChartsCore;
@@ -11,13 +12,13 @@ namespace D2Oracle.Core.ViewModels.Dashboard;
 
 public class HeroDiagramsCardViewModel : ViewModelBase
 {
-    private readonly NetWorthCalculator netWorthCalculator;
+    private readonly INetWorthCalculator netWorthCalculator;
 
     private record NetWorthSample(int ClockTime, uint NetWorth);
 
     private readonly ObservableCollection<NetWorthSample> netWorthValuesPerSecond = new();
 
-    public HeroDiagramsCardViewModel(IDotaGsiService dotaGsiService, NetWorthCalculator netWorthCalculator)
+    public HeroDiagramsCardViewModel(IDotaGsiService dotaGsiService, INetWorthCalculator netWorthCalculator)
     {
         this.netWorthCalculator = netWorthCalculator;
         dotaGsiService.GameStateObservable.Subscribe(OnNewGameState);

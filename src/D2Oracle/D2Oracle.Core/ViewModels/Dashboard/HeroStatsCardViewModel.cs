@@ -1,6 +1,7 @@
 ﻿using System.Reactive.Linq;
 using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.DotaKnowledge;
+using D2Oracle.Core.Services.NetWorth;
 using Dota2GSI;
 using ReactiveUI;
 
@@ -9,7 +10,7 @@ namespace D2Oracle.Core.ViewModels.Dashboard;
 public class HeroStatsCardViewModel : ViewModelBase
 {
     private readonly IDotaKnowledgeService dotaKnowledgeService;
-    private readonly NetWorthCalculator netWorthCalculator;
+    private readonly INetWorthCalculator netWorthCalculator;
 
     /// <summary>
     /// Constructor for designer
@@ -38,7 +39,7 @@ public class HeroStatsCardViewModel : ViewModelBase
     }
 
     public HeroStatsCardViewModel(IDotaGsiService dotaGsiService, IDotaKnowledgeService dotaKnowledgeService,
-        NetWorthCalculator netWorthCalculator)
+        INetWorthCalculator netWorthCalculator)
     {
         this.dotaKnowledgeService = dotaKnowledgeService;
         this.netWorthCalculator = netWorthCalculator;

@@ -1,0 +1,33 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
+             xmlns:timings="clr-namespace:D2Oracle.Core.ViewModels.Dashboard.Timings;assembly=D2Oracle.Core"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="D2Oracle.Avalonia.Views.Dashboard.Timings.RoshanTimingsView"
+             x:DataType="timings:RoshanTimingsViewModel">
+    <Design.DataContext>
+        <timings:RoshanTimingsViewModel />
+    </Design.DataContext>
+    <suki:CircleProgressBar
+        StrokeWidth="11"
+        Value="{Binding RoshanRespawnEstimatedPercent}">
+        <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
+            <Image Source="/Assets/roshan_icon.png"
+                   Height="32"
+                   Width="32"
+                   VerticalAlignment="Center"
+                   Margin="5" />
+            <Grid Margin="5">
+                <TextBlock Text="{x:Static d2Oracle:Resources.RoshanAlive}"
+                           IsVisible="{Binding !IsRoshanEstimatedTimeVisible}"
+                           VerticalAlignment="Center" />
+                <TextBlock Text="{Binding EstimatedRoshanRespawnTime}"
+                           IsVisible="{Binding IsRoshanEstimatedTimeVisible}"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </StackPanel>
+    </suki:CircleProgressBar>
+</UserControl>

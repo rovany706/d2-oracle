@@ -9,9 +9,10 @@ public static class DotaExtensions
     
     public static string FormatAsDotaTime(this TimeSpan time)
     {
-        const string dotaTimeFormat = @"mm\:ss";
+        const string dotaTimeFormat = @"{0}:{1}";
+        var totalMinutes = (int) time.TotalMinutes;
         var sign = time < TimeSpan.Zero ? "-" : "";
 
-        return $"{sign}{time.ToString(dotaTimeFormat)}";
+        return $"{sign}{string.Format(dotaTimeFormat, totalMinutes, time.ToString("ss"))}";
     }
 }

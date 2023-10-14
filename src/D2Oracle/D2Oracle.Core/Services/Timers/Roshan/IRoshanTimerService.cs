@@ -1,4 +1,4 @@
-namespace D2Oracle.Core.Services.Roshan;
+namespace D2Oracle.Core.Services.Timers.Roshan;
 
 public interface IRoshanTimerService
 {

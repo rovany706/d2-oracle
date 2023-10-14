@@ -26,7 +26,7 @@ public class DotaKnowledgeService : IDotaKnowledgeService
             ContractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new SnakeCaseNamingStrategy()
-            },
+            }
         });
 
         return serializer;

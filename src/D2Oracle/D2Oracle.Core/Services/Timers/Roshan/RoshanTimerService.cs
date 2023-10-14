@@ -2,9 +2,9 @@ using D2Oracle.Core.Extensions;
 using Dota2GSI;
 using Dota2GSI.Nodes.Events;
 
-namespace D2Oracle.Core.Services.Roshan;
+namespace D2Oracle.Core.Services.Timers.Roshan;
 
-public class RoshanTimerService : IRoshanTimerService
+public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 {
     private const int MinRoshanRespawnTimeInMinutes = 8;
     private const int MaxRoshanRespawnTimeInMinutes = 11;
@@ -12,9 +12,8 @@ public class RoshanTimerService : IRoshanTimerService
     private bool isNotifiedAboutMinRoshanRespawnTime;
     private bool isNotifiedAboutMaxRoshanRespawnTime;
 
-    public RoshanTimerService(IDotaGsiService dotaGsiService)
+    public RoshanTimerService(IDotaGsiService dotaGsiService) : base(dotaGsiService)
     {
-        dotaGsiService.GameStateObservable.Subscribe(ProcessGameState);
     }
 
     public event EventHandler? MinRoshanRespawnTimeReached;
@@ -33,7 +32,7 @@ public class RoshanTimerService : IRoshanTimerService
 
     public bool IsRoshanAlive => RoshanLastDeathClockTime is null;
 
-    private void ProcessGameState(GameState? gameState)
+    protected override void ProcessGameState(GameState? gameState)
     {
         if (gameState?.Map is null || !gameState.IsInGame())
         {
