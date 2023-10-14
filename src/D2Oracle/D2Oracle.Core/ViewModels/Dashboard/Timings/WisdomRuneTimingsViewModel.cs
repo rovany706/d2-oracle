@@ -58,9 +58,9 @@ public class WisdomRuneTimingsViewModel : ViewModelBase
         this.wisdomRuneTimerService.WisdomRuneSpawnsSoon += OnWisdomRuneSpawnsSoon;
     }
 
-    private void OnWisdomRuneSpawnsSoon(object? sender, EventArgs e)
+    private async void OnWisdomRuneSpawnsSoon(object? sender, EventArgs e)
     {
-        audioService.PlaySound(DotaSoundType.WisdomRuneSoon);
+        await audioService.PlaySound(DotaSoundType.WisdomRuneSoon);
     }
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)
