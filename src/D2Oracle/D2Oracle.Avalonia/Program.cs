@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.ReactiveUI;
 using System;
+using Serilog;
 
 namespace D2Oracle.Avalonia;
 
@@ -12,9 +13,23 @@ class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
         
+        try
+        {
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
+        catch (Exception e)
+        {
+            Log.Fatal(e, "Something very bad happened");
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.
