@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="D2Oracle.Avalonia/App.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/CurrentStateInfoView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/DashboardView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/HeroDiagramsCardView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />

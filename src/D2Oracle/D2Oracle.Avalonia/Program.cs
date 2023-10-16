@@ -25,6 +25,7 @@ class Program
         catch (Exception e)
         {
             Log.Fatal(e, "Something very bad happened");
+            throw;
         }
         finally
         {

@@ -59,14 +59,7 @@
                         </Grid>
                     </suki:SideMenuModel.HeaderContent>
                     <suki:SideMenuModel.MenuItems>
-                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}">
-                            <suki:SideMenuItem.Icon>
-                                <material:MaterialIcon 
-                                    Kind="Gamepad"
-                                    Width="24"
-                                    Height="24"
-                                    Foreground="White" />
-                            </suki:SideMenuItem.Icon>
+                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}" Icon="Gamepad">
                             <suki:SideMenuItem.Content>
                                 <dashboard:DashboardView />
                             </suki:SideMenuItem.Content>
@@ -74,14 +67,7 @@
                     </suki:SideMenuModel.MenuItems>
 
                     <suki:SideMenuModel.FooterMenuItems>
-                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}">
-                            <suki:SideMenuItem.Icon>
-                                <material:MaterialIcon 
-                                    Kind="Settings"
-                                    Width="24"
-                                    Height="24"
-                                    Foreground="White"/>
-                            </suki:SideMenuItem.Icon>
+                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}" Icon="Settings">
                             <suki:SideMenuItem.Content>
                                 <settings:SettingsView />
                             </suki:SideMenuItem.Content>
