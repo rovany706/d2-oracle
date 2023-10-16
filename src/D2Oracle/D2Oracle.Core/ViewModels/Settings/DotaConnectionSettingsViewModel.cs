@@ -20,6 +20,12 @@ public class DotaConnectionSettingsViewModel : ViewModelBase
     public async void AutomaticInstall()
     {
         var result = await this.filePickerService.OpenFolderPickerAsync(Resources.Resources.SelectDota2Folder);
+
+        if (result.Any() == false)
+        {
+            return;
+        }
+        
         var folder = result.Single();
 
         if (this.dotaConfigInstallationService.IsCorrectDotaPath(folder) == false)
