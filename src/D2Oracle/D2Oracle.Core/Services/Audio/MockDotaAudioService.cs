@@ -2,7 +2,7 @@
 
 public class MockDotaAudioService : IDotaAudioService
 {
-    public Task PlaySound(DotaSoundType soundType)
+    public Task PlaySoundAsync(DotaSoundType soundType)
     {
         return Task.CompletedTask;
     }

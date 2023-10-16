@@ -1,4 +1,5 @@
 ﻿using D2Oracle.Core.ViewModels.Dashboard;
+using D2Oracle.Core.ViewModels.Settings;
 
 namespace D2Oracle.Core.ViewModels;
 

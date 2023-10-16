@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace D2Oracle.Avalonia.Views;
+namespace D2Oracle.Avalonia.Views.Settings;
 
 public partial class SettingsView : UserControl
 {

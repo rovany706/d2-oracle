@@ -30,7 +30,7 @@ public class HeroDiagramsCardViewModel : ViewModelBase
                 Values = this.netWorthValuesPerSecond,
                 Mapping = (sample, chartPoint) =>
                     chartPoint.Coordinate = new Coordinate(sample.ClockTime, sample.NetWorth),
-                LineSmoothness = 1,
+                LineSmoothness = 0,
                 GeometrySize = 0
             }
         };

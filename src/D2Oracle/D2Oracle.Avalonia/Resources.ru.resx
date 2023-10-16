@@ -26,4 +26,10 @@
     <data name="Dashboard" xml:space="preserve">
         <value>Главная</value>
     </data>
+    <data name="SelectDota2Folder" xml:space="preserve">
+        <value>Выбрать папку Dota 2 ("dota 2 beta") для установки конфига</value>
+    </data>
+    <data name="ConfigNotInstalledWarning" xml:space="preserve">
+        <value>Если конфиг не установлен, перейдите в Настройки/Dota 2 connection</value>
+    </data>
 </root>

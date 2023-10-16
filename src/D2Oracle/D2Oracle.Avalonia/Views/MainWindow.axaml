@@ -3,10 +3,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
-        xmlns:views="using:D2Oracle.Avalonia.Views"
+        xmlns:material="using:Material.Icons.Avalonia"
         xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
         xmlns:dashboard="clr-namespace:D2Oracle.Avalonia.Views.Dashboard"
         xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels;assembly=D2Oracle.Core"
+        xmlns:settings="clr-namespace:D2Oracle.Avalonia.Views.Settings"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="D2Oracle.Avalonia.Views.MainWindow"
         x:DataType="viewModels:MainWindowViewModel"
@@ -15,7 +16,8 @@
         Icon="/Assets/icon.ico"
         Title="{x:Static d2Oracle:Resources.AppName}"
         MinHeight="750"
-        MinWidth="1000">
+        MinWidth="1000"
+        Loaded="Window_OnLoaded">
     
     <Design.DataContext>
         <viewModels:MainWindowViewModel />
@@ -57,7 +59,14 @@
                         </Grid>
                     </suki:SideMenuModel.HeaderContent>
                     <suki:SideMenuModel.MenuItems>
-                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}" Icon="Gamepad">
+                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Dashboard}">
+                            <suki:SideMenuItem.Icon>
+                                <material:MaterialIcon 
+                                    Kind="Gamepad"
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="White" />
+                            </suki:SideMenuItem.Icon>
                             <suki:SideMenuItem.Content>
                                 <dashboard:DashboardView />
                             </suki:SideMenuItem.Content>
@@ -65,9 +74,16 @@
                     </suki:SideMenuModel.MenuItems>
 
                     <suki:SideMenuModel.FooterMenuItems>
-                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}" Icon="Settings">
+                        <suki:SideMenuItem Header="{x:Static d2Oracle:Resources.Settings}">
+                            <suki:SideMenuItem.Icon>
+                                <material:MaterialIcon 
+                                    Kind="Settings"
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="White"/>
+                            </suki:SideMenuItem.Icon>
                             <suki:SideMenuItem.Content>
-                                <views:SettingsView />
+                                <settings:SettingsView />
                             </suki:SideMenuItem.Content>
                         </suki:SideMenuItem>
                     </suki:SideMenuModel.FooterMenuItems>

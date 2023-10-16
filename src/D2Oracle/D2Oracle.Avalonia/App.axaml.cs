@@ -1,8 +1,11 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using D2Oracle.Avalonia.Services;
 using D2Oracle.Core.Configuration;
 using D2Oracle.Avalonia.Views;
+using D2Oracle.Core.Services;
+using LazyProxy.ServiceProvider;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -45,6 +48,8 @@ public partial class App : Application
         builder.ConfigureServices((context, services) =>
         {
             services.AddSingleton<MainWindow>();
+            services.AddLazySingleton<INotificationService, AvaloniaNotificationService>();
+            services.AddLazySingleton<IFilePickerService, AvaloniaFilePickerService>();
             services.ConfigureAppServices(context.Configuration);
             services.AddAppServices();
             services.AddAppViewModels();

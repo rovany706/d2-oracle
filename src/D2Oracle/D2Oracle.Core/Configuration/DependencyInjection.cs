@@ -2,11 +2,13 @@ using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.Audio;
 using D2Oracle.Core.Services.DotaKnowledge;
 using D2Oracle.Core.Services.NetWorth;
+using D2Oracle.Core.Services.Settings;
 using D2Oracle.Core.Services.Timers.Roshan;
 using D2Oracle.Core.Services.Timers.Runes;
 using D2Oracle.Core.ViewModels;
 using D2Oracle.Core.ViewModels.Dashboard;
 using D2Oracle.Core.ViewModels.Dashboard.Timings;
+using D2Oracle.Core.ViewModels.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -36,6 +38,7 @@ public static class DependencyInjection
         services.AddSingleton<IDotaKnowledgeService, DotaKnowledgeService>();
         services.AddSingleton<INetWorthCalculator, NetWorthCalculator>();
         services.AddSingleton<IWisdomRuneTimerService, WisdomRuneTimerService>();
+        services.AddSingleton<IDotaConfigInstallationService, DotaConfigInstallationService>();
 
         return services;
     }
@@ -51,6 +54,7 @@ public static class DependencyInjection
         services.AddTransient<HeroDiagramsCardViewModel>();
         services.AddTransient<RoshanTimingsViewModel>();
         services.AddTransient<WisdomRuneTimingsViewModel>();
+        services.AddTransient<DotaConnectionSettingsViewModel>();
 
         return services;
     }

@@ -61,12 +61,12 @@ public class WisdomRuneTimingsViewModel : ViewModelBase
 
     private async void OnWisdomRuneSpawnsSoon(object? sender, EventArgs e)
     {
-        await audioService.PlaySound(DotaSoundType.WisdomRuneSoon);
+        await audioService.PlaySoundAsync(DotaSoundType.WisdomRuneSoon);
     }
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)
     {
-        if (gameState?.Map is null || gameState?.Map?.GameState != DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
+        if (gameState?.Map is null || gameState.Map.GameState != DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
         {
             return 100;
         }

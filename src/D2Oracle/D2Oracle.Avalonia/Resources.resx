@@ -51,4 +51,10 @@
     <data name="NextRuneAtFormat" xml:space="preserve">
         <value>Next: {0}</value>
     </data>
+    <data name="SelectDota2Folder" xml:space="preserve">
+        <value>Select Dota 2 folder ("dota 2 beta") to install config</value>
+    </data>
+    <data name="ConfigNotInstalledWarning" xml:space="preserve">
+        <value>If config is not installed go to Settings/Dota 2 connection</value>
+    </data>
 </root>

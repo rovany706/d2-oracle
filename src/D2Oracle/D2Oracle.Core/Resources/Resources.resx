@@ -21,4 +21,42 @@
     <data name="NetWorth" xml:space="preserve">
         <value>Net worth</value>
     </data>
+    <data name="GsiFileContent" xml:space="preserve">
+        <value>"D2Oracle"
+{
+    "uri"           "http://localhost:3000"
+    "timeout"       "5.0"
+    "buffer"        "0.5"
+    "throttle"      "0.5"
+    "heartbeat"     "30.0"
+    "data"
+    {
+        "provider"      "1"
+        "map"           "1"
+        "player"        "1"
+        "hero"          "1"
+        "abilities"     "1"
+        "items"         "1"
+        "buildings"     "1"
+        "draft"         "1"
+        "wearables"     "1"
+        "events"        "1"
+    }
+}</value>
+    </data>
+    <data name="Success" xml:space="preserve">
+        <value>Success</value>
+    </data>
+    <data name="ConfigFileCreated" xml:space="preserve">
+        <value>Config file created</value>
+    </data>
+    <data name="SelectDota2Folder" xml:space="preserve">
+        <value>Select Dota 2 folder</value>
+    </data>
+    <data name="Error" xml:space="preserve">
+        <value>Error</value>
+    </data>
+    <data name="IncorrectFolder" xml:space="preserve">
+        <value>Wrong folder</value>
+    </data>
 </root>

@@ -2,5 +2,5 @@
 
 public interface IDotaAudioService
 {
-    Task PlaySound(DotaSoundType soundType);
+    Task PlaySoundAsync(DotaSoundType soundType);
 }

@@ -60,11 +60,85 @@ namespace D2Oracle.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Config file created.
+        /// </summary>
+        public static string ConfigFileCreated {
+            get {
+                return ResourceManager.GetString("ConfigFileCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;D2Oracle&quot;
+        ///{
+        ///    &quot;uri&quot;           &quot;http://localhost:3000&quot;
+        ///    &quot;timeout&quot;       &quot;5.0&quot;
+        ///    &quot;buffer&quot;        &quot;0.5&quot;
+        ///    &quot;throttle&quot;      &quot;0.5&quot;
+        ///    &quot;heartbeat&quot;     &quot;30.0&quot;
+        ///    &quot;data&quot;
+        ///    {
+        ///        &quot;provider&quot;      &quot;1&quot;
+        ///        &quot;map&quot;           &quot;1&quot;
+        ///        &quot;player&quot;        &quot;1&quot;
+        ///        &quot;hero&quot;          &quot;1&quot;
+        ///        &quot;abilities&quot;     &quot;1&quot;
+        ///        &quot;items&quot;         &quot;1&quot;
+        ///        &quot;buildings&quot;     &quot;1&quot;
+        ///        &quot;draft&quot;         &quot;1&quot;
+        ///        &quot;wearables&quot;     &quot;1&quot;
+        ///        &quot;events&quot;        &quot;1&quot;
+        ///    }
+        ///}.
+        /// </summary>
+        public static string GsiFileContent {
+            get {
+                return ResourceManager.GetString("GsiFileContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong folder.
+        /// </summary>
+        public static string IncorrectFolder {
+            get {
+                return ResourceManager.GetString("IncorrectFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Net worth.
         /// </summary>
         public static string NetWorth {
             get {
                 return ResourceManager.GetString("NetWorth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Dota 2 folder.
+        /// </summary>
+        public static string SelectDota2Folder {
+            get {
+                return ResourceManager.GetString("SelectDota2Folder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
     }

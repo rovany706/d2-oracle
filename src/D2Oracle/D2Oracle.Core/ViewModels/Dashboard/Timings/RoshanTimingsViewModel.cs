@@ -79,12 +79,12 @@ public class RoshanTimingsViewModel : ViewModelBase
 
     private async void OnMaxRoshanRespawnTimeReached(object? sender, EventArgs e)
     {
-        await audioService.PlaySound(DotaSoundType.MaxRoshanTime);
+        await audioService.PlaySoundAsync(DotaSoundType.MaxRoshanTime);
         this.RaisePropertyChanged(nameof(IsRoshanEstimatedTimeVisible));
     }
 
     private async void OnMinRoshanRespawnTimeReached(object? sender, EventArgs e)
     {
-        await audioService.PlaySound(DotaSoundType.MinRoshanTime);
+        await audioService.PlaySoundAsync(DotaSoundType.MinRoshanTime);
     }
 }

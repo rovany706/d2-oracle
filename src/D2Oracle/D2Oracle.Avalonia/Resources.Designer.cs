@@ -69,6 +69,15 @@ namespace D2Oracle.Avalonia {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If config is not installed go to Settings/Dota 2 connection.
+        /// </summary>
+        public static string ConfigNotInstalledWarning {
+            get {
+                return ResourceManager.GetString("ConfigNotInstalledWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string Dashboard {
@@ -128,6 +137,15 @@ namespace D2Oracle.Avalonia {
         public static string RoshanAlive {
             get {
                 return ResourceManager.GetString("RoshanAlive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Dota 2 folder (&quot;dota 2 beta&quot;) to install config.
+        /// </summary>
+        public static string SelectDota2Folder {
+            get {
+                return ResourceManager.GetString("SelectDota2Folder", resourceCulture);
             }
         }
         
