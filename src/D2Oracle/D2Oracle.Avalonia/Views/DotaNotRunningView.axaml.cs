@@ -2,9 +2,9 @@
 
 namespace D2Oracle.Avalonia.Views;
 
-public partial class NotConnectedView : UserControl
+public partial class DotaNotRunningView : UserControl
 {
-    public NotConnectedView()
+    public DotaNotRunningView()
     {
         InitializeComponent();
     }

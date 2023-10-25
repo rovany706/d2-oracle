@@ -18,7 +18,7 @@ public class WisdomRuneTimerService : GameStateObserver, IWisdomRuneTimerService
     
     protected override void ProcessGameState(GameState? gameState)
     {
-        if (gameState?.Map is null)
+        if (gameState?.Map is null || !gameState.IsInGame())
         {
             return;
         }

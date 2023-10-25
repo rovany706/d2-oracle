@@ -11,8 +11,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="NotConnected" xml:space="preserve">
-        <value>Нет подключения к Dota 2</value>
+    <data name="WaitingForGame" xml:space="preserve">
+        <value>Ожидание игры...</value>
     </data>
     <data name="Timings" xml:space="preserve">
         <value>Тайминги</value>
@@ -27,9 +27,12 @@
         <value>Главная</value>
     </data>
     <data name="SelectDota2Folder" xml:space="preserve">
-        <value>Выбрать папку Dota 2 ("dota 2 beta") для установки конфига</value>
+        <value>Выбрать папку Dota 2 ("dota 2 beta") для установки конфига...</value>
     </data>
     <data name="ConfigNotInstalledWarning" xml:space="preserve">
         <value>Если конфиг не установлен, перейдите в Настройки/Dota 2 connection</value>
+    </data>
+    <data name="Dota2IsNotRunning" xml:space="preserve">
+        <value>Dota 2 не запущена</value>
     </data>
 </root>

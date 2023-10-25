@@ -1,28 +1,24 @@
-﻿using System.Reactive.Linq;
-using D2Oracle.Core.Services;
+﻿using D2Oracle.Core.Services;
 using ReactiveUI;
 
 namespace D2Oracle.Core.ViewModels.Dashboard;
 
 public class DashboardPageViewModel : ViewModelBase
 {
-    private bool isConnected;
-    
-    public DashboardPageViewModel(IDotaGsiService dotaGsiService, CurrentStateInfoViewModel currentStateInfoViewModel)
+    private bool isDotaRunning;
+
+    public DashboardPageViewModel(IDotaProcessLocator dotaProcessLocator, CurrentStateInfoViewModel currentStateInfoViewModel)
     {
         CurrentStateInfoViewModel = currentStateInfoViewModel;
-        
-        dotaGsiService.GameStateObservable
-            .Select(_ => IsConnected = true)
-            .Throttle(TimeSpan.FromSeconds(10))
-            .Subscribe(_ => IsConnected = false);
+
+        dotaProcessLocator.IsDotaProcessRunningObservable.Subscribe(isRunning => IsDotaRunning = isRunning);
     }
     
     public CurrentStateInfoViewModel CurrentStateInfoViewModel { get; }
 
-    public bool IsConnected
+    public bool IsDotaRunning
     {
-        get => isConnected;
-        set => this.RaiseAndSetIfChanged(ref isConnected, value);
+        get => this.isDotaRunning;
+        set => this.RaiseAndSetIfChanged(ref isDotaRunning, value);
     }
 }

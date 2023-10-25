@@ -1,9 +1,14 @@
-﻿using D2Oracle.Core.ViewModels.Dashboard.Timings;
+﻿using System.Reactive.Linq;
+using D2Oracle.Core.Services;
+using D2Oracle.Core.ViewModels.Dashboard.Timings;
+using ReactiveUI;
 
 namespace D2Oracle.Core.ViewModels.Dashboard;
 
 public class CurrentStateInfoViewModel : ViewModelBase
 {
+    private bool isConnected;
+
     /// <summary>
     /// Constructor for designer
     /// </summary>
@@ -13,12 +18,23 @@ public class CurrentStateInfoViewModel : ViewModelBase
         HeroStatsCardViewModel = new HeroStatsCardViewModel();
     }
 
-    public CurrentStateInfoViewModel(TimingsCardViewModel timingsCardViewModel,
+    public CurrentStateInfoViewModel(IDotaGsiService dotaGsiService, TimingsCardViewModel timingsCardViewModel,
         HeroStatsCardViewModel heroStatsCardViewModel, HeroDiagramsCardViewModel heroDiagramsCardViewModel)
     {
         TimingsCardViewModel = timingsCardViewModel;
         HeroStatsCardViewModel = heroStatsCardViewModel;
         HeroDiagramsCardViewModel = heroDiagramsCardViewModel;
+        
+        dotaGsiService.GameStateObservable
+            .Select(_ => IsConnected = true)
+            .Throttle(TimeSpan.FromSeconds(10))
+            .Subscribe(_ => IsConnected = false);
+    }
+    
+    public bool IsConnected
+    {
+        get => isConnected;
+        set => this.RaiseAndSetIfChanged(ref isConnected, value);
     }
 
     public TimingsCardViewModel TimingsCardViewModel { get; }

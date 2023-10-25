@@ -15,8 +15,8 @@
     
     <Grid>
         <ContentControl Content="{Binding CurrentStateInfoViewModel}"
-                        IsVisible="{Binding IsConnected}" />
+                        IsVisible="{Binding IsDotaRunning}" />
 
-        <views:NotConnectedView IsVisible="{Binding !IsConnected}" />
+        <views:DotaNotRunningView IsVisible="{Binding !IsDotaRunning}" />
     </Grid>
 </UserControl>

@@ -39,6 +39,7 @@ public static class DependencyInjection
         services.AddSingleton<INetWorthCalculator, NetWorthCalculator>();
         services.AddSingleton<IWisdomRuneTimerService, WisdomRuneTimerService>();
         services.AddSingleton<IDotaConfigInstallationService, DotaConfigInstallationService>();
+        services.AddSingleton<IDotaProcessLocator, DotaProcessLocator>();
 
         return services;
     }

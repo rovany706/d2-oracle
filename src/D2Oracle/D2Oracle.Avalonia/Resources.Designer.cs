@@ -87,6 +87,15 @@ namespace D2Oracle.Avalonia {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dota 2 is not running.
+        /// </summary>
+        public static string Dota2IsNotRunning {
+            get {
+                return ResourceManager.GetString("Dota2IsNotRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GPM: {0}.
         /// </summary>
         public static string GpmFormat {
@@ -123,15 +132,6 @@ namespace D2Oracle.Avalonia {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not connected to Dota 2.
-        /// </summary>
-        public static string NotConnected {
-            get {
-                return ResourceManager.GetString("NotConnected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Alive.
         /// </summary>
         public static string RoshanAlive {
@@ -141,7 +141,7 @@ namespace D2Oracle.Avalonia {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Dota 2 folder (&quot;dota 2 beta&quot;) to install config.
+        ///   Looks up a localized string similar to Select Dota 2 folder (&quot;dota 2 beta&quot;) to install config....
         /// </summary>
         public static string SelectDota2Folder {
             get {
@@ -164,6 +164,15 @@ namespace D2Oracle.Avalonia {
         public static string Timings {
             get {
                 return ResourceManager.GetString("Timings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for game....
+        /// </summary>
+        public static string WaitingForGame {
+            get {
+                return ResourceManager.GetString("WaitingForGame", resourceCulture);
             }
         }
         

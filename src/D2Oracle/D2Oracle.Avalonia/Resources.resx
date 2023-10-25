@@ -21,8 +21,8 @@
     <data name="Timings" xml:space="preserve">
         <value>Timings</value>
     </data>
-    <data name="NotConnected" xml:space="preserve">
-        <value>Not connected to Dota 2</value>
+    <data name="WaitingForGame" xml:space="preserve">
+        <value>Waiting for game...</value>
     </data>
     <data name="GpmFormat" xml:space="preserve">
         <value>GPM: {0}</value>
@@ -52,9 +52,12 @@
         <value>Next: {0}</value>
     </data>
     <data name="SelectDota2Folder" xml:space="preserve">
-        <value>Select Dota 2 folder ("dota 2 beta") to install config</value>
+        <value>Select Dota 2 folder ("dota 2 beta") to install config...</value>
     </data>
     <data name="ConfigNotInstalledWarning" xml:space="preserve">
         <value>If config is not installed go to Settings/Dota 2 connection</value>
+    </data>
+    <data name="Dota2IsNotRunning" xml:space="preserve">
+        <value>Dota 2 is not running</value>
     </data>
 </root>
