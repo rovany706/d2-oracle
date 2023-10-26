@@ -12,8 +12,17 @@
     </Design.DataContext>
     <Border Classes="Card">
         <StackPanel>
-            <TextBlock Classes="h1"
-                       Text="{Binding HeroName}" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Classes="h1"
+                           Text="{Binding HeroName}" />
+                <Button VerticalAlignment="Center" Command="{Binding GoToDota2ProTracker}">
+                    <Image Source="{SvgImage ../../Assets/d2pt_icon.svg}" />
+                </Button>
+                <Button VerticalAlignment="Center" Command="{Binding GoToDotabuff}">
+                    <Image Source="avares://D2Oracle.Avalonia/Assets/dbuff_icon.png" />
+                </Button>
+            </StackPanel>
+            
             <TextBlock Classes="h4"
                        Text="{Binding Gpm, StringFormat={x:Static d2Oracle:Resources.GpmFormat}}" />
             <TextBlock Classes="h4"

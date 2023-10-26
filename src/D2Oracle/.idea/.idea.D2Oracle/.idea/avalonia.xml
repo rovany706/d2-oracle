@@ -11,6 +11,7 @@
         <entry key="D2Oracle.Avalonia/Views/Dashboard/Timings/RoshanTimingsView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/Timings/WisdomRuneTimingsView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/TimingsCardView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
+        <entry key="D2Oracle.Avalonia/Views/DotaNotRunningView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/MainWindow.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/NotConnectedView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Settings/DotaConnectionSettingsView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />

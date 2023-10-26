@@ -1,4 +1,5 @@
-﻿using System.Reactive.Linq;
+﻿using System.Diagnostics;
+using System.Reactive.Linq;
 using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.DotaKnowledge;
 using D2Oracle.Core.Services.NetWorth;
@@ -9,6 +10,9 @@ namespace D2Oracle.Core.ViewModels.Dashboard;
 
 public class HeroStatsCardViewModel : ViewModelBase
 {
+    private const string DotabuffHeroUrlTemplate = "https://www.dotabuff.com/heroes/{0}";
+    private const string Dota2ProTrackerHeroUrlTemplate = "https://dota2protracker.com/hero/{0}";
+    
     private readonly IDotaKnowledgeService dotaKnowledgeService;
     private readonly INetWorthCalculator netWorthCalculator;
 
@@ -81,4 +85,24 @@ public class HeroStatsCardViewModel : ViewModelBase
     private readonly ObservableAsPropertyHelper<uint> netWorth;
 
     public uint NetWorth => netWorth.Value;
+
+    public void GoToDotabuff()
+    {
+        var dotaBuffHeroName = HeroName.ToLower().Replace(' ', '-');
+        var url = string.Format(DotabuffHeroUrlTemplate, dotaBuffHeroName);
+        
+        GoToUrl(url);
+    }
+
+    public void GoToDota2ProTracker()
+    {
+        var url = string.Format(Dota2ProTrackerHeroUrlTemplate, HeroName);
+        
+        GoToUrl(url);
+    }
+
+    private static void GoToUrl(string url)
+    {
+        Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+    }
 }
