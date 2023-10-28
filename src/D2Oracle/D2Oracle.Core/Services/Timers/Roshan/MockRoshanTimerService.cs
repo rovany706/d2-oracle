@@ -8,7 +8,7 @@ public class MockRoshanTimerService : IRoshanTimerService
 
     public event EventHandler? MaxRoshanRespawnTimeReached;
     
-    public event EventHandler? RoshanKilled;
+    public event EventHandler? RoshanLastDeathClockTimeChanged;
 
     public TimeSpan? MinRoshanRespawnClockTime => TimeSpan.FromMinutes(8);
 

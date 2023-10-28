@@ -16,7 +16,7 @@
             <TextBlock Text="{x:Static d2Oracle:Resources.Timings}" Classes="h1" />
             <Grid RowDefinitions="Auto,*">
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <material:MaterialIcon Kind="Clock" Margin="5" />
+                    <material:MaterialIcon Kind="Clock" Margin="5" Foreground="White" />
                     <TextBlock Text="{Binding Time}" Classes="h4" />
                 </StackPanel>
 

@@ -11,6 +11,7 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 
     private bool isNotifiedAboutMinRoshanRespawnTime;
     private bool isNotifiedAboutMaxRoshanRespawnTime;
+    private TimeSpan? roshanLastDeathClockTime;
 
     public RoshanTimerService(IDotaGsiService dotaGsiService) : base(dotaGsiService)
     {
@@ -20,15 +21,23 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 
     public event EventHandler? MaxRoshanRespawnTimeReached;
 
-    public event EventHandler? RoshanKilled;
+    public event EventHandler? RoshanLastDeathClockTimeChanged;
 
     public TimeSpan? MinRoshanRespawnClockTime => RoshanLastDeathClockTime?
         .Add(TimeSpan.FromMinutes(MinRoshanRespawnTimeInMinutes));
 
     public TimeSpan? MaxRoshanRespawnClockTime => RoshanLastDeathClockTime?
         .Add(TimeSpan.FromMinutes(MaxRoshanRespawnTimeInMinutes));
-    
-    public TimeSpan? RoshanLastDeathClockTime { get; private set; }
+
+    public TimeSpan? RoshanLastDeathClockTime
+    {
+        get => this.roshanLastDeathClockTime;
+        private set
+        {
+            this.roshanLastDeathClockTime = value;
+            RoshanLastDeathClockTimeChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     public bool IsRoshanAlive => RoshanLastDeathClockTime is null;
 
@@ -40,14 +49,13 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
             
             return;
         }
-
+        
         var roshanDeathEvent = GetRoshanDeathEvent(gameState);
 
         if (roshanDeathEvent is not null && IsRoshanAlive)
         {
             var gameTimeClockTimeDifference = Math.Abs(gameState.Map.GameTime - gameState.Map.ClockTime);
             RegisterRoshanDeath(roshanDeathEvent.GameTime - gameTimeClockTimeDifference);
-            RoshanKilled?.Invoke(this, EventArgs.Empty);
 
             return;
         }

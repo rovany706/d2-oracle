@@ -7,6 +7,9 @@ namespace D2Oracle.Core.Services.NetWorth;
 public class NetWorthCalculator : INetWorthCalculator
 {
     private const string AghanimsShardName = "item_aghanims_shard";
+    private const string AghanimsScepterName = "item_ultimate_scepter";
+    private const string AghanimsBlessingName = "item_ultimate_scepter_2";
+    
     private readonly IDotaKnowledgeService dotaKnowledgeService;
 
     public NetWorthCalculator(IDotaKnowledgeService dotaKnowledgeService)
@@ -58,11 +61,11 @@ public class NetWorthCalculator : INetWorthCalculator
     {
         var hasPlayerAghanimsBlessing = gameState.Hero?.AghanimsScepter == true // has aghanims upgrade
                                         && gameState.Items?.MainItems.SingleOrDefault(x => // but no scepter
-                                            x.Name == "item_ultimate_scepter") == null;
+                                            x.Name == AghanimsScepterName) == null;
 
         if (hasPlayerAghanimsBlessing)
         {
-            return (uint?)GetItemDescription("item_ultimate_scepter_2")?.Cost ?? 0;
+            return (uint?)GetItemDescription(AghanimsBlessingName)?.Cost ?? 0;
         }
 
         return 0;

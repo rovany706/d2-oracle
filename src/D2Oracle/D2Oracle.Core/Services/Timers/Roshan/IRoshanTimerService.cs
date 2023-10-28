@@ -6,7 +6,7 @@ public interface IRoshanTimerService
 
     event EventHandler MaxRoshanRespawnTimeReached;
 
-    event EventHandler RoshanKilled;
+    event EventHandler RoshanLastDeathClockTimeChanged;
     
     TimeSpan? MinRoshanRespawnClockTime { get; }
 

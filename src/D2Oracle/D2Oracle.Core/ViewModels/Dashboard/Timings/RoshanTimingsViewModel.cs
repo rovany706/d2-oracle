@@ -58,7 +58,7 @@ public class RoshanTimingsViewModel : ViewModelBase
     {
         this.roshanTimerService.MinRoshanRespawnTimeReached += OnMinRoshanRespawnTimeReached;
         this.roshanTimerService.MaxRoshanRespawnTimeReached += OnMaxRoshanRespawnTimeReached;
-        this.roshanTimerService.RoshanKilled += OnRoshanKilled;
+        this.roshanTimerService.RoshanLastDeathClockTimeChanged += OnRoshanLastDeathClockTimeChanged;
     }
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)
@@ -71,7 +71,7 @@ public class RoshanTimingsViewModel : ViewModelBase
         return (int?)(clockTimeDeltaRelativeToDeath / respawnTimeRelativeToDeath * 100) ?? 100;
     }
 
-    private void OnRoshanKilled(object? sender, EventArgs e)
+    private void OnRoshanLastDeathClockTimeChanged(object? sender, EventArgs e)
     {
         this.RaisePropertyChanged(nameof(EstimatedRoshanRespawnTime));
         this.RaisePropertyChanged(nameof(IsRoshanEstimatedTimeVisible));
