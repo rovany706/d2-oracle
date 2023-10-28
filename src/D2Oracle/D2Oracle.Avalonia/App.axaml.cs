@@ -48,6 +48,7 @@ public partial class App : Application
         builder.ConfigureServices((context, services) =>
         {
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<IDispatcherService, AvaloniaDispatcherService>();
             services.AddLazySingleton<INotificationService, AvaloniaNotificationService>();
             services.AddLazySingleton<IFilePickerService, AvaloniaFilePickerService>();
             services.ConfigureAppServices(context.Configuration);

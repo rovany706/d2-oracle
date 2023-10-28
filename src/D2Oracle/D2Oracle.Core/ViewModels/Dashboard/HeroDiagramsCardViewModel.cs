@@ -12,15 +12,17 @@ namespace D2Oracle.Core.ViewModels.Dashboard;
 
 public class HeroDiagramsCardViewModel : ViewModelBase
 {
-    private readonly INetWorthCalculator netWorthCalculator;
-
     private record NetWorthSample(int ClockTime, uint NetWorth);
 
+    private readonly INetWorthCalculator netWorthCalculator;
+    private readonly IDispatcherService dispatcherService;
     private readonly ObservableCollection<NetWorthSample> netWorthValuesPerSecond = new();
 
-    public HeroDiagramsCardViewModel(IDotaGsiService dotaGsiService, INetWorthCalculator netWorthCalculator)
+    public HeroDiagramsCardViewModel(IDotaGsiService dotaGsiService, INetWorthCalculator netWorthCalculator,
+        IDispatcherService dispatcherService)
     {
         this.netWorthCalculator = netWorthCalculator;
+        this.dispatcherService = dispatcherService;
         dotaGsiService.GameStateObservable.Subscribe(OnNewGameState);
 
         NetWorthSeries = new ObservableCollection<ISeries>
@@ -57,8 +59,11 @@ public class HeroDiagramsCardViewModel : ViewModelBase
             return;
         }
 
-        this.netWorthValuesPerSecond.Add(new NetWorthSample(gameState.Map.ClockTime,
-            this.netWorthCalculator.Calculate(gameState)));
+        this.dispatcherService.Post(() =>
+        {
+            this.netWorthValuesPerSecond.Add(new NetWorthSample(gameState.Map.ClockTime,
+                this.netWorthCalculator.Calculate(gameState)));
+        });
     }
 
     private void ClearGraph()
