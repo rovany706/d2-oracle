@@ -2,7 +2,7 @@
 
 public class DotaConfigInstallationService : IDotaConfigInstallationService
 {
-    private const string ConfigFolder = @"game\dota\cfg";
+    private const string ConfigFolder = @"game/dota/cfg";
     private const string GsiConfigFolder = "gamestate_integration";
     private const string GsiConfigFileName = "gamestate_integration_d2oracle.cfg";
     
