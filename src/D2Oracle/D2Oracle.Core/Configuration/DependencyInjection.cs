@@ -1,3 +1,4 @@
+using System.IO.Abstractions;
 using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.Audio;
 using D2Oracle.Core.Services.DotaKnowledge;
@@ -40,6 +41,7 @@ public static class DependencyInjection
         services.AddSingleton<IWisdomRuneTimerService, WisdomRuneTimerService>();
         services.AddSingleton<IDotaConfigInstallationService, DotaConfigInstallationService>();
         services.AddSingleton<IDotaProcessLocator, DotaProcessLocator>();
+        services.AddSingleton<IFileSystem>(new FileSystem());
 
         return services;
     }

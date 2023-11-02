@@ -1,27 +1,35 @@
-﻿namespace D2Oracle.Core.Services.Settings;
+﻿using System.IO.Abstractions;
+
+namespace D2Oracle.Core.Services.Settings;
 
 public class DotaConfigInstallationService : IDotaConfigInstallationService
 {
+    private readonly IFileSystem fileSystem;
     private const string ConfigFolder = @"game/dota/cfg";
     private const string GsiConfigFolder = "gamestate_integration";
     private const string GsiConfigFileName = "gamestate_integration_d2oracle.cfg";
+
+    public DotaConfigInstallationService(IFileSystem fileSystem)
+    {
+        this.fileSystem = fileSystem;
+    }
     
     public async Task InstallConfigAsync(string dotaPath)
     {
-        var gsiFolder = Path.Combine(dotaPath, ConfigFolder, GsiConfigFolder);
-        Directory.CreateDirectory(gsiFolder);
-        var gsiFilePath = Path.Combine(gsiFolder, GsiConfigFileName);
+        var gsiFolder = this.fileSystem.Path.Combine(dotaPath, ConfigFolder, GsiConfigFolder);
+        this.fileSystem.Directory.CreateDirectory(gsiFolder);
+        var gsiFilePath = this.fileSystem.Path.Combine(gsiFolder, GsiConfigFileName);
         
-        if (File.Exists(gsiFilePath))
+        if (this.fileSystem.File.Exists(gsiFilePath))
         {
             return;
         }
         
-        await File.WriteAllTextAsync(gsiFilePath, Resources.Resources.GsiFileContent);
+        await this.fileSystem.File.WriteAllTextAsync(gsiFilePath, Resources.Resources.GsiFileContent);
     }
 
     public bool IsCorrectDotaPath(string path)
     {
-        return Directory.Exists(Path.Combine(path, ConfigFolder));
+        return this.fileSystem.Directory.Exists(Path.Combine(path, ConfigFolder));
     }
 }

@@ -61,7 +61,7 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
         if (roshanDeathEvent is not null)
         {
             var gameTimeClockTimeDifference = Math.Abs(gameState.Map.GameTime - gameState.Map.ClockTime);
-            RoshanLastDeathClockTime = TimeSpan.FromSeconds(gameTimeClockTimeDifference);
+            RoshanLastDeathClockTime = TimeSpan.FromSeconds(roshanDeathEvent.GameTime - gameTimeClockTimeDifference);
 
             return;
         }
