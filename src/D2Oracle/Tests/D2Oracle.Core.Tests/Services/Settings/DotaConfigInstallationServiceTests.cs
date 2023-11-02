@@ -62,7 +62,7 @@ public class DotaConfigInstallationServiceTests
 
         var sut = new DotaConfigInstallationService(fileSystem);
 
-        await sut.InstallConfigAsync(@"c:\dota 2 beta");
+        await sut.InstallConfigAsync(fileSystem.CurrentDirectory().SubDirectory("dota 2 beta").FullName);
 
         var configFile = directory.File("gamestate_integration", "gamestate_integration_d2oracle.cfg");
         Assert.That(await fileSystem.File.ReadAllTextAsync(configFile.FullName), Is.EqualTo(expected));
