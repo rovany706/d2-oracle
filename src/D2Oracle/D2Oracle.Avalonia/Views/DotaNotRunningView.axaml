@@ -6,6 +6,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="D2Oracle.Avalonia.Views.DotaNotRunningView">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="{x:Static d2Oracle:Resources.Dota2IsNotRunning}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="{x:Static d2Oracle:Resources.Dota2IsNotRunning}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontFamily="{StaticResource ReaverFont}" FontSize="20"/>
     </StackPanel>
 </UserControl>

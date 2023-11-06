@@ -60,4 +60,13 @@
     <data name="Dota2IsNotRunning" xml:space="preserve">
         <value>Dota 2 is not running</value>
     </data>
+    <data name="OpenInBrowser" xml:space="preserve">
+        <value>Open in browser</value>
+    </data>
+    <data name="Dotabuff" xml:space="preserve">
+        <value>Dotabuff</value>
+    </data>
+    <data name="Dota2ProTracker" xml:space="preserve">
+        <value>Dota2ProTracker</value>
+    </data>
 </root>

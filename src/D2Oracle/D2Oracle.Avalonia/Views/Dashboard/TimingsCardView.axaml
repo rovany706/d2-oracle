@@ -13,7 +13,8 @@
     </Design.DataContext>
     <Border Classes="Card">
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="{x:Static d2Oracle:Resources.Timings}" Classes="h1" />
+            <TextBlock Text="{x:Static d2Oracle:Resources.Timings}" Classes="h1" 
+                       FontFamily="{StaticResource ReaverFont}" FontWeight="Bold" />
             <Grid RowDefinitions="Auto,*">
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <material:MaterialIcon Kind="Clock" Margin="5" Foreground="White" />

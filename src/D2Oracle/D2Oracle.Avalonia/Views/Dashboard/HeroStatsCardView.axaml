@@ -11,24 +11,47 @@
         <dashboard:HeroStatsCardViewModel />
     </Design.DataContext>
     <Border Classes="Card">
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Classes="h1"
-                           Text="{Binding HeroName}" />
-                <Button VerticalAlignment="Center" Command="{Binding GoToDota2ProTracker}">
+        <StackPanel Margin="0,20,0,0">
+            <WrapPanel Orientation="Horizontal">
+                <TextBlock Classes="h1" Margin="0,0,0,5"
+                           Text="{Binding HeroName}" FontFamily="{StaticResource ReaverFont}" FontWeight="Bold"
+                           VerticalAlignment="Center" />
+                <Button VerticalAlignment="Center" Command="{Binding GoToDota2ProTracker}" ToolTip.Placement="Bottom">
+                    <ToolTip.Tip>
+                        <StackPanel>
+                            <TextBlock Foreground="Black" FontSize="16" Text="{x:Static d2Oracle:Resources.Dota2ProTracker}" />
+                            <TextBlock Foreground="Black" Text="{x:Static d2Oracle:Resources.OpenInBrowser}" />
+                        </StackPanel>
+                    </ToolTip.Tip>
                     <Image Source="{SvgImage ../../Assets/d2pt_icon.svg}" />
                 </Button>
-                <Button VerticalAlignment="Center" Command="{Binding GoToDotabuff}">
+                <Button VerticalAlignment="Center" Command="{Binding GoToDotabuff}" ToolTip.Placement="Bottom">
+                    <ToolTip.Tip>
+                        <StackPanel>
+                            <TextBlock Foreground="Black" FontSize="16" Text="{x:Static d2Oracle:Resources.Dotabuff}" />
+                            <TextBlock Foreground="Black" Text="{x:Static d2Oracle:Resources.OpenInBrowser}" />
+                        </StackPanel>
+                    </ToolTip.Tip>
                     <Image Source="avares://D2Oracle.Avalonia/Assets/dbuff_icon.png" />
                 </Button>
+            </WrapPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="avares://D2Oracle.Avalonia/Assets/gold_icon.png" Width="25" Height="25" Margin="0,0,5,0" />
+                <TextBlock Classes="h4" FontFamily="{StaticResource ReaverFont}"
+                           Text="{Binding Gpm, StringFormat={x:Static d2Oracle:Resources.GpmFormat}}" />
             </StackPanel>
             
-            <TextBlock Classes="h4"
-                       Text="{Binding Gpm, StringFormat={x:Static d2Oracle:Resources.GpmFormat}}" />
-            <TextBlock Classes="h4"
-                       Text="{Binding Xpm, StringFormat={x:Static d2Oracle:Resources.XpmFormat}}" />
-            <TextBlock Classes="h4"
-                       Text="{Binding NetWorth, StringFormat={x:Static d2Oracle:Resources.NetWorthFormat}}" />
+            <StackPanel Orientation="Horizontal">
+                <Image Source="avares://D2Oracle.Avalonia/Assets/exp_icon.png" Width="25" Height="25" Margin="0,0,5,0" />
+                <TextBlock Classes="h4" FontFamily="{StaticResource ReaverFont}"
+                           Text="{Binding Xpm, StringFormat={x:Static d2Oracle:Resources.XpmFormat}}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Classes="h4" FontFamily="{StaticResource ReaverFont}"
+                           Text="{Binding NetWorth, StringFormat={x:Static d2Oracle:Resources.NetWorthFormat}}" />
+                <Image Source="avares://D2Oracle.Avalonia/Assets/gold_icon.png" Width="25" Height="25" Margin="5,0,0,0" />
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>

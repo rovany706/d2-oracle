@@ -9,7 +9,7 @@
              x:DataType="viewModels:DotaConnectionSettingsViewModel">
     <Border Classes="Card">
         <StackPanel Orientation="Vertical">
-            <TextBlock Classes="h3" Text="Dota 2 connection" />
+            <TextBlock Classes="h3" Text="Dota 2 connection" FontFamily="{StaticResource ReaverFont}" FontWeight="Bold" />
             <Button Classes="Primary" Command="{Binding AutomaticInstall}" Foreground="White"
                     Content="{x:Static d2Oracle:Resources.SelectDota2Folder}" />
         </StackPanel>

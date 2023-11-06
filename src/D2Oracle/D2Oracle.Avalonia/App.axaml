@@ -13,4 +13,8 @@
         <!-- <FluentTheme /> -->
         <StyleInclude Source="avares://SukiUI/Theme/Index.xaml" />
     </Application.Styles>
+             
+    <Application.Resources>
+        <FontFamily x:Key="ReaverFont">avares://D2Oracle.Avalonia/Assets/fonts#Reaver</FontFamily>
+    </Application.Resources>
 </Application>

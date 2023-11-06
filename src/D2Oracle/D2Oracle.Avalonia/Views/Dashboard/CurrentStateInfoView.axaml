@@ -11,15 +11,22 @@
         <dashboard:CurrentStateInfoViewModel />
     </Design.DataContext>
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding !IsConnected}">
-            <TextBlock Text="{x:Static d2Oracle:Resources.WaitingForGame}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Text="{x:Static d2Oracle:Resources.ConfigNotInstalledWarning}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gold"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    IsVisible="{Binding !IsConnected}">
+            <TextBlock Text="{x:Static d2Oracle:Resources.WaitingForGame}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="{StaticResource ReaverFont}" FontSize="20" />
+            <TextBlock Text="{x:Static d2Oracle:Resources.ConfigNotInstalledWarning}" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Foreground="Gold"
+                       FontSize="15"
+                       FontFamily="{StaticResource ReaverFont}" />
         </StackPanel>
-        
+
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Margin="10" IsVisible="{Binding IsConnected}">
             <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding TimingsCardViewModel}" />
             <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding HeroStatsCardViewModel}" />
-            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding HeroDiagramsCardViewModel}" />
+            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            Content="{Binding HeroDiagramsCardViewModel}" />
         </Grid>
     </Grid>
 

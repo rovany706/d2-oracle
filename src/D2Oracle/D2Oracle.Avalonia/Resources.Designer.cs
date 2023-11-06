@@ -96,6 +96,24 @@ namespace D2Oracle.Avalonia {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dota2ProTracker.
+        /// </summary>
+        public static string Dota2ProTracker {
+            get {
+                return ResourceManager.GetString("Dota2ProTracker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dotabuff.
+        /// </summary>
+        public static string Dotabuff {
+            get {
+                return ResourceManager.GetString("Dotabuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GPM: {0}.
         /// </summary>
         public static string GpmFormat {
@@ -128,6 +146,15 @@ namespace D2Oracle.Avalonia {
         public static string NextRuneAtFormat {
             get {
                 return ResourceManager.GetString("NextRuneAtFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open in browser.
+        /// </summary>
+        public static string OpenInBrowser {
+            get {
+                return ResourceManager.GetString("OpenInBrowser", resourceCulture);
             }
         }
         

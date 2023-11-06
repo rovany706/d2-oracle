@@ -35,4 +35,7 @@
     <data name="Dota2IsNotRunning" xml:space="preserve">
         <value>Dota 2 не запущена</value>
     </data>
+    <data name="OpenInBrowser" xml:space="preserve">
+        <value>Открыть в браузере</value>
+    </data>
 </root>
