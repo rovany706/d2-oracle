@@ -43,7 +43,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish -r ${{ matrix.rid }} --self-contained true -c Release -o Release
+      run: dotnet publish D2Oracle.Avalonia/D2Oracle.Avalonia.csproj -r ${{ matrix.rid }} --self-contained true -c Release -o Release
     - name: Upload build
       uses: actions/upload-artifact@v3
       with:
