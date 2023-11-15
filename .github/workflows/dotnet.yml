@@ -17,6 +17,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            rid: linux-x64
+          - os: windows-latest
+            rid: win-x64
 
     defaults:
       run:
@@ -30,7 +35,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 8.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -38,10 +43,10 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish -c Release -o release
+      run: dotnet publish -r ${{ matrix.rid }} --self-contained true -c Release -o Release
     - name: Upload build
       uses: actions/upload-artifact@v3
       with:
-        name: build-${{ matrix.os }}
-        path: ./src/D2Oracle/release
+        name: build-${{ matrix.rid }}
+        path: ./src/D2Oracle/Release
         if-no-files-found: error
