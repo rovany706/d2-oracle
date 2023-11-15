@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -9,6 +9,7 @@
         <RootNamespace>D2Oracle.Avalonia</RootNamespace>
         <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
         <PublishSingleFile>true</PublishSingleFile>
+        <AssemblyName>D2Oracle</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
