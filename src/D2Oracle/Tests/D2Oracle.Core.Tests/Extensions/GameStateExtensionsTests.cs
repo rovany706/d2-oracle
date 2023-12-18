@@ -28,7 +28,6 @@ public class GameStateExtensionsTests
 
     [Test]
     [TestCase(DotaGameState.Undefined, false)]
-    [TestCase(DotaGameState.DOTA_GAMERULES_STATE_DISCONNECT, false)]
     [TestCase(DotaGameState.DOTA_GAMERULES_STATE_INIT, false)]
     [TestCase(DotaGameState.DOTA_GAMERULES_STATE_LAST, false)]
     [TestCase(DotaGameState.DOTA_GAMERULES_STATE_POST_GAME, false)]
@@ -40,6 +39,7 @@ public class GameStateExtensionsTests
     [TestCase(DotaGameState.DOTA_GAMERULES_STATE_HERO_SELECTION, true)]
     [TestCase(DotaGameState.DOTA_GAMERULES_STATE_PRE_GAME, true)]
     [TestCase(DotaGameState.DOTA_GAMERULES_STATE_STRATEGY_TIME, true)]
+    [TestCase(DotaGameState.DOTA_GAMERULES_STATE_DISCONNECT, true)]
     public void IsInGame_ReturnExpected(DotaGameState dotaGameState, bool expected)
     {
         var map = GameStateTestHelper.CreateDefaultMap() with { GameState = dotaGameState };

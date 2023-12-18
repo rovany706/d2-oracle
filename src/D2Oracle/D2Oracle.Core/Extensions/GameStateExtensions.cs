@@ -18,7 +18,8 @@ public static class GameStateExtensions
             DotaGameState.DOTA_GAMERULES_STATE_STRATEGY_TIME,
             DotaGameState.DOTA_GAMERULES_STATE_TEAM_SHOWCASE,
             DotaGameState.DOTA_GAMERULES_STATE_HERO_SELECTION,
-            DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS
+            DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS,
+            DotaGameState.DOTA_GAMERULES_STATE_DISCONNECT,
         };
 
         return inGameStates.Contains(gameState.Map.GameState);
