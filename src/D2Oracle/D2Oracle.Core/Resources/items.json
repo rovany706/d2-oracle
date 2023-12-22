@@ -525,11 +525,11 @@
     },
     {
         "name": "item_recipe_vladmir",
-        "cost": "250"
+        "cost": "0"
     },
     {
         "name": "item_vladmir",
-        "cost": "2450"
+        "cost": "2200"
     },
     {
         "name": "item_recipe_wraith_pact",
@@ -537,7 +537,7 @@
     },
     {
         "name": "item_wraith_pact",
-        "cost": "4050"
+        "cost": "3800"
     },
     {
         "name": "item_recipe_buckler",
@@ -825,11 +825,11 @@
     },
     {
         "name": "item_recipe_meteor_hammer",
-        "cost": "800"
+        "cost": "600"
     },
     {
         "name": "item_meteor_hammer",
-        "cost": "3300"
+        "cost": "3100"
     },
     {
         "name": "item_recipe_nullifier",
