@@ -9,7 +9,7 @@ public class NetWorthCalculator : INetWorthCalculator
     private const string AghanimsShardName = "item_aghanims_shard";
     private const string AghanimsScepterName = "item_ultimate_scepter";
     private const string AghanimsBlessingName = "item_ultimate_scepter_2";
-    
+
     private readonly IDotaKnowledgeService dotaKnowledgeService;
 
     public NetWorthCalculator(IDotaKnowledgeService dotaKnowledgeService)
@@ -29,28 +29,20 @@ public class NetWorthCalculator : INetWorthCalculator
         gold += GetAghanimsShardCost(gameState);
         gold += GetAghanimsBlessingCost(gameState);
 
-        var itemDescriptions = items.Select(GetItemDescription);
-        return gold + (uint)itemDescriptions.Sum(x => x?.Cost ?? 0);
+        var itemsSum = items.Sum(item => GetItemCost(item.Name));
+        return gold + (uint)itemsSum;
     }
 
-    private ItemDescription? GetItemDescription(DotaItem item)
+    private uint GetItemCost(string itemName)
     {
-        return GetItemDescription(item.Name);
-    }
+        var isItemExists = this.dotaKnowledgeService.Items.TryGetValue(itemName, out var cost);
 
-    private ItemDescription? GetItemDescription(string itemName)
-    {
-        return dotaKnowledgeService.Items.SingleOrDefault(description => description.Name.Equals(itemName));
+        return isItemExists ? cost : 0;
     }
 
     private uint GetAghanimsShardCost(GameState gameState)
     {
-        if (gameState.Hero?.AghanimsShard == false)
-        {
-            return 0;
-        }
-
-        return (uint?)GetItemDescription(AghanimsShardName)?.Cost ?? 0;
+        return gameState.Hero?.AghanimsShard == true ? GetItemCost(AghanimsShardName) : 0;
     }
 
     /// <summary>
@@ -63,11 +55,6 @@ public class NetWorthCalculator : INetWorthCalculator
                                         && gameState.Items?.MainItems.SingleOrDefault(x => // but no scepter
                                             x.Name == AghanimsScepterName) == null;
 
-        if (hasPlayerAghanimsBlessing)
-        {
-            return (uint?)GetItemDescription(AghanimsBlessingName)?.Cost ?? 0;
-        }
-
-        return 0;
+        return hasPlayerAghanimsBlessing ? GetItemCost(AghanimsBlessingName) : 0;
     }
 }

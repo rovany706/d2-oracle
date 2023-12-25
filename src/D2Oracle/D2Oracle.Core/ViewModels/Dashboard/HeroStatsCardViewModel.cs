@@ -66,25 +66,27 @@ public class HeroStatsCardViewModel : ViewModelBase
     }
     private string GetHeroName(GameState? gameState)
     {
-        return this.dotaKnowledgeService.Heroes.SingleOrDefault(hero => hero.Name.Equals(gameState?.Hero?.Name))?.LocalizedName
-               ?? string.Empty;
+        var isSuccess =
+            this.dotaKnowledgeService.Heroes.TryGetValue(gameState?.Hero?.Name ?? "", out var localizedName);
+
+        return isSuccess ? localizedName! : string.Empty;
     }
 
     private readonly ObservableAsPropertyHelper<string> heroName;
 
-    public string HeroName => heroName.Value;
+    public string HeroName => this.heroName.Value;
 
     private readonly ObservableAsPropertyHelper<uint> gpm;
 
-    public uint Gpm => gpm.Value;
+    public uint Gpm => this.gpm.Value;
 
     private readonly ObservableAsPropertyHelper<uint> xpm;
 
-    public uint Xpm => xpm.Value;
+    public uint Xpm => this.xpm.Value;
 
     private readonly ObservableAsPropertyHelper<uint> netWorth;
 
-    public uint NetWorth => netWorth.Value;
+    public uint NetWorth => this.netWorth.Value;
 
     public void GoToDotabuff()
     {
