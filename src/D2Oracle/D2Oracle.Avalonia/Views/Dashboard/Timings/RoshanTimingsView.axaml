@@ -1,32 +1,32 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.Dashboard.Timings.RoshanTimingsView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
-             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:timings="clr-namespace:D2Oracle.Core.ViewModels.Dashboard.Timings;assembly=D2Oracle.Core"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.Dashboard.Timings.RoshanTimingsView"
-             x:DataType="timings:RoshanTimingsViewModel">
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="timings:RoshanTimingsViewModel"
+             mc:Ignorable="d">
     <Design.DataContext>
         <timings:RoshanTimingsViewModel />
     </Design.DataContext>
-    <suki:CircleProgressBar
-        StrokeWidth="11"
-        Value="{Binding RoshanRespawnEstimatedPercent}">
+    <suki:CircleProgressBar StrokeWidth="11" Value="{Binding RoshanRespawnEstimatedPercent}">
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-            <Image Source="/Assets/roshan_icon.png"
+            <Image Width="32"
                    Height="32"
-                   Width="32"
+                   Margin="5"
                    VerticalAlignment="Center"
-                   Margin="5" />
+                   Source="/Assets/roshan_icon.png" />
             <Grid Margin="5">
-                <TextBlock Text="{x:Static d2Oracle:Resources.RoshanAlive}"
+                <TextBlock VerticalAlignment="Center"
                            IsVisible="{Binding !IsRoshanEstimatedTimeVisible}"
-                           VerticalAlignment="Center" />
-                <TextBlock Text="{Binding EstimatedRoshanRespawnTime}"
+                           Text="{x:Static d2Oracle:Resources.RoshanAlive}" />
+                <TextBlock VerticalAlignment="Center"
                            IsVisible="{Binding IsRoshanEstimatedTimeVisible}"
-                           VerticalAlignment="Center" />
+                           Text="{Binding EstimatedRoshanRespawnTime}" />
             </Grid>
         </StackPanel>
     </suki:CircleProgressBar>

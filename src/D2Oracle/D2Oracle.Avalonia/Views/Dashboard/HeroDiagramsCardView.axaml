@@ -1,18 +1,26 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.Dashboard.HeroDiagramsCardView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.Dashboard.HeroDiagramsCardView"
-             x:DataType="dashboard:HeroDiagramsCardViewModel"
-             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
-             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia">
+             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="dashboard:HeroDiagramsCardViewModel"
+             mc:Ignorable="d">
     <Border Classes="Card">
         <Grid RowDefinitions="Auto, *">
-            <TextBlock Grid.Row="0" Classes="h2" Text="{x:Static d2Oracle:Resources.NetWorth}" 
-                       FontFamily="{StaticResource ReaverFont}" FontWeight="Bold" />
-            <lvc:CartesianChart Grid.Row="1" Series="{Binding NetWorthSeries}" XAxes="{Binding NetWorthXAxes}" YAxes="{Binding NetWorthYAxes}" />
+            <TextBlock Grid.Row="0"
+                       Classes="h2"
+                       FontFamily="{StaticResource ReaverFont}"
+                       FontWeight="Bold"
+                       Text="{x:Static d2Oracle:Resources.NetWorth}" />
+            <lvc:CartesianChart Grid.Row="1"
+                                Series="{Binding NetWorthSeries}"
+                                XAxes="{Binding NetWorthXAxes}"
+                                YAxes="{Binding NetWorthYAxes}" />
         </Grid>
     </Border>
 </UserControl>

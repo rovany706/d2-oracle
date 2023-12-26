@@ -1,21 +1,22 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.Dashboard.DashboardView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="clr-namespace:D2Oracle.Avalonia.Views"
              xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.Dashboard.DashboardView"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:D2Oracle.Avalonia.Views"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
              x:DataType="dashboard:DashboardPageViewModel"
-             DataContext="{d2Oracle:DISource Type=dashboard:DashboardPageViewModel}">
+             DataContext="{d2Oracle:DISource Type=dashboard:DashboardPageViewModel}"
+             mc:Ignorable="d">
     <Design.DataContext>
         <dashboard:DashboardPageViewModel />
     </Design.DataContext>
-    
+
     <Grid>
-        <ContentControl Content="{Binding CurrentStateInfoViewModel}"
-                        IsVisible="{Binding IsDotaRunning}" />
+        <ContentControl Content="{Binding CurrentStateInfoViewModel}" IsVisible="{Binding IsDotaRunning}" />
 
         <views:DotaNotRunningView IsVisible="{Binding !IsDotaRunning}" />
     </Grid>

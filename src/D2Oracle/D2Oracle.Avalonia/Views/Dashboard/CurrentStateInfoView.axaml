@@ -1,31 +1,57 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.Dashboard.CurrentStateInfoView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
              xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.Dashboard.CurrentStateInfoView"
-             x:DataType="dashboard:CurrentStateInfoViewModel">
+             xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="dashboard:CurrentStateInfoViewModel"
+             mc:Ignorable="d">
     <Design.DataContext>
         <dashboard:CurrentStateInfoViewModel />
     </Design.DataContext>
-    <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    IsVisible="{Binding !IsConnected}">
-            <TextBlock Text="{x:Static d2Oracle:Resources.WaitingForGame}" HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontFamily="{StaticResource ReaverFont}" FontSize="20" />
-            <TextBlock Text="{x:Static d2Oracle:Resources.ConfigNotInstalledWarning}" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" Foreground="Gold"
-                       FontSize="15"
-                       FontFamily="{StaticResource ReaverFont}" />
-        </StackPanel>
 
-        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Margin="10" IsVisible="{Binding IsConnected}">
-            <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding TimingsCardViewModel}" />
-            <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding HeroStatsCardViewModel}" />
-            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+    <Grid RowDefinitions="*,Auto">
+        <Grid IsVisible="{Binding !IsConnected}" RowDefinitions="*,Auto">
+            <StackPanel Grid.Row="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="{StaticResource ReaverFont}"
+                           FontSize="20"
+                           Text="{x:Static d2Oracle:Resources.WaitingForGame}" />
+                <suki:Loading Margin="15" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="1"
+                       Margin="0,0,0,15"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom"
+                       FontFamily="{StaticResource ReaverFont}"
+                       FontSize="15"
+                       Foreground="Gold"
+                       Text="{x:Static d2Oracle:Resources.ConfigNotInstalledWarning}" />
+        </Grid>
+
+        <Grid Grid.Row="0"
+              Margin="10"
+              ColumnDefinitions="*,*"
+              IsVisible="{Binding IsConnected}"
+              RowDefinitions="*,*">
+            <ContentControl Grid.Row="0"
+                            Grid.Column="0"
+                            Content="{Binding TimingsCardViewModel}" />
+            <ContentControl Grid.Row="0"
+                            Grid.Column="1"
+                            Content="{Binding HeroStatsCardViewModel}" />
+            <ContentControl Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
                             Content="{Binding HeroDiagramsCardViewModel}" />
         </Grid>
     </Grid>

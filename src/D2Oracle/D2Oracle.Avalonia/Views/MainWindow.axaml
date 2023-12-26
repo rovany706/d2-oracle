@@ -1,23 +1,25 @@
-<Window xmlns="https://github.com/avaloniaui"
+<Window x:Class="D2Oracle.Avalonia.Views.MainWindow"
+        xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
         xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
         xmlns:dashboard="clr-namespace:D2Oracle.Avalonia.Views.Dashboard"
-        xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels;assembly=D2Oracle.Core"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:settings="clr-namespace:D2Oracle.Avalonia.Views.Settings"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="D2Oracle.Avalonia.Views.MainWindow"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels;assembly=D2Oracle.Core"
+        Title="{x:Static d2Oracle:Resources.AppName}"
+        MinWidth="1000"
+        MinHeight="750"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
         x:DataType="viewModels:MainWindowViewModel"
         Classes="Blurred"
         ExtendClientAreaToDecorationsHint="False"
         Icon="/Assets/icon.ico"
-        Title="{x:Static d2Oracle:Resources.AppName}"
-        MinHeight="750"
-        MinWidth="1000"
-        Loaded="Window_OnLoaded">
-    
+        Loaded="Window_OnLoaded"
+        mc:Ignorable="d">
+
     <Design.DataContext>
         <viewModels:MainWindowViewModel />
     </Design.DataContext>
@@ -27,18 +29,19 @@
             <suki:SideMenu.DataContext>
                 <suki:SideMenuModel>
                     <suki:SideMenuModel.HeaderContent>
-                        <Grid RowDefinitions="Auto, Auto" Margin="10">
-                            <Image Source="/Assets/icon.ico"
-                                   Grid.Row="0"
+                        <Grid Margin="10" RowDefinitions="Auto, Auto">
+                            <Image Grid.Row="0"
                                    Width="40"
                                    Height="40"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Center">
+                                   VerticalAlignment="Center"
+                                   Source="/Assets/icon.ico">
                                 <Image.Styles>
                                     <Style Selector="Image:pointerover">
                                         <Style.Animations>
-                                            <Animation Duration="0:0:0.5" IterationCount="1"
-                                                       Easing="QuadraticEaseInOut">
+                                            <Animation Easing="QuadraticEaseInOut"
+                                                       IterationCount="1"
+                                                       Duration="0:0:0.5">
                                                 <KeyFrame Cue="0%">
                                                     <Setter Property="RotateTransform.Angle" Value="0.0" />
                                                 </KeyFrame>
@@ -52,11 +55,12 @@
                             </Image>
                             <TextBlock Grid.Row="1"
                                        Margin="0,10,0,0"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Classes="h3"
                                        FontFamily="{StaticResource ReaverFont}"
                                        FontWeight="Bold"
-                                       Text="{x:Static d2Oracle:Resources.AppName}" Classes="h3"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />
+                                       Text="{x:Static d2Oracle:Resources.AppName}" />
                         </Grid>
                     </suki:SideMenuModel.HeaderContent>
                     <suki:SideMenuModel.MenuItems>

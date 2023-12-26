@@ -1,12 +1,19 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.DotaNotRunningView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.DotaNotRunningView">
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="{x:Static d2Oracle:Resources.Dota2IsNotRunning}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontFamily="{StaticResource ReaverFont}" FontSize="20"/>
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Vertical">
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontFamily="{StaticResource ReaverFont}"
+                   FontSize="20"
+                   Text="{x:Static d2Oracle:Resources.Dota2IsNotRunning}" />
     </StackPanel>
 </UserControl>

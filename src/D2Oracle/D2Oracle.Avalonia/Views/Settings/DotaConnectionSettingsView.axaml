@@ -1,17 +1,24 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.Settings.DotaConnectionSettingsView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels.Settings;assembly=D2Oracle.Core"
-             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.Settings.DotaConnectionSettingsView"
-             x:DataType="viewModels:DotaConnectionSettingsViewModel">
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="viewModels:DotaConnectionSettingsViewModel"
+             mc:Ignorable="d">
     <Border Classes="Card">
         <StackPanel Orientation="Vertical">
-            <TextBlock Classes="h3" Text="Dota 2 connection" FontFamily="{StaticResource ReaverFont}" FontWeight="Bold" />
-            <Button Classes="Primary" Command="{Binding AutomaticInstall}" Foreground="White"
-                    Content="{x:Static d2Oracle:Resources.SelectDota2Folder}" />
+            <TextBlock Classes="h3"
+                       FontFamily="{StaticResource ReaverFont}"
+                       FontWeight="Bold"
+                       Text="Dota 2 connection" />
+            <Button Classes="Primary"
+                    Command="{Binding AutomaticInstall}"
+                    Content="{x:Static d2Oracle:Resources.SelectDota2Folder}"
+                    Foreground="White" />
         </StackPanel>
     </Border>
 </UserControl>

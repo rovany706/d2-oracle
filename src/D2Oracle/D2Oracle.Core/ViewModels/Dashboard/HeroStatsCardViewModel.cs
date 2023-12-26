@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Reactive;
 using System.Reactive.Linq;
 using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.DotaKnowledge;
@@ -12,7 +13,7 @@ public class HeroStatsCardViewModel : ViewModelBase
 {
     private const string DotabuffHeroUrlTemplate = "https://www.dotabuff.com/heroes/{0}";
     private const string Dota2ProTrackerHeroUrlTemplate = "https://dota2protracker.com/hero/{0}";
-    
+
     private readonly IDotaKnowledgeService dotaKnowledgeService;
     private readonly INetWorthCalculator netWorthCalculator;
 
@@ -63,7 +64,16 @@ public class HeroStatsCardViewModel : ViewModelBase
         this.netWorth = dotaGsiService.GameStateObservable
             .Select(this.netWorthCalculator.Calculate)
             .ToProperty(this, x => x.NetWorth);
+        
+        var isHeroPicked = this
+            .WhenAnyValue(x => x.HeroName)
+            .Select(name => !string.IsNullOrEmpty(name))
+            .ObserveOn(RxApp.MainThreadScheduler);
+
+        GoToDotabuff = ReactiveCommand.Create(OpenDotabuff, isHeroPicked);
+        GoToDota2ProTracker = ReactiveCommand.Create(OpenDota2ProTracker, isHeroPicked);
     }
+
     private string GetHeroName(GameState? gameState)
     {
         var isSuccess =
@@ -88,18 +98,21 @@ public class HeroStatsCardViewModel : ViewModelBase
 
     public uint NetWorth => this.netWorth.Value;
 
-    public void GoToDotabuff()
+    public ReactiveCommand<Unit, Unit> GoToDotabuff { get; }
+    public ReactiveCommand<Unit, Unit> GoToDota2ProTracker { get; }
+
+    private void OpenDotabuff()
     {
         var dotaBuffHeroName = HeroName.ToLower().Replace(' ', '-');
         var url = string.Format(DotabuffHeroUrlTemplate, dotaBuffHeroName);
-        
+
         GoToUrl(url);
     }
 
-    public void GoToDota2ProTracker()
+    private void OpenDota2ProTracker()
     {
         var url = string.Format(Dota2ProTrackerHeroUrlTemplate, HeroName);
-        
+
         GoToUrl(url);
     }
 

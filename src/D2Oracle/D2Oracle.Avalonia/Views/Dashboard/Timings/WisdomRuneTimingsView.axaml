@@ -1,28 +1,26 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl x:Class="D2Oracle.Avalonia.Views.Dashboard.Timings.WisdomRuneTimingsView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
-             xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:timings="clr-namespace:D2Oracle.Core.ViewModels.Dashboard.Timings;assembly=D2Oracle.Core"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="D2Oracle.Avalonia.Views.Dashboard.Timings.WisdomRuneTimingsView"
-             x:DataType="timings:WisdomRuneTimingsViewModel">
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="timings:WisdomRuneTimingsViewModel"
+             mc:Ignorable="d">
     <Design.DataContext>
         <timings:WisdomRuneTimingsViewModel />
     </Design.DataContext>
-    <suki:CircleProgressBar
-        StrokeWidth="11"
-        Value="{Binding NextWisdomRunePercent}">
+    <suki:CircleProgressBar StrokeWidth="11" Value="{Binding NextWisdomRunePercent}">
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-            <Image Source="/Assets/wisdom_rune_icon.png"
+            <Image Width="32"
                    Height="32"
-                   Width="32"
+                   Margin="5"
                    VerticalAlignment="Center"
-                   Margin="5" />
-            <TextBlock
-                Text="{Binding NextWisdomRuneTime, StringFormat={x:Static d2Oracle:Resources.NextRuneAtFormat}}"
-                VerticalAlignment="Center" />
+                   Source="/Assets/wisdom_rune_icon.png" />
+            <TextBlock VerticalAlignment="Center" Text="{Binding NextWisdomRuneTime, StringFormat={x:Static d2Oracle:Resources.NextRuneAtFormat}}" />
         </StackPanel>
     </suki:CircleProgressBar>
 </UserControl>

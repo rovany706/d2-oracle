@@ -1,19 +1,19 @@
-<Application xmlns="https://github.com/avaloniaui"
+<Application x:Class="D2Oracle.Avalonia.App"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="D2Oracle.Avalonia.App"
              xmlns:local="using:D2Oracle.Avalonia"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
-  
+
     <Application.Styles>
         <!-- <FluentTheme /> -->
         <StyleInclude Source="avares://SukiUI/Theme/Index.xaml" />
     </Application.Styles>
-             
+
     <Application.Resources>
         <FontFamily x:Key="ReaverFont">avares://D2Oracle/Assets/fonts#Reaver</FontFamily>
     </Application.Resources>
