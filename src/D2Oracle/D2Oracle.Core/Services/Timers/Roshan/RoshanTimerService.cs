@@ -49,10 +49,10 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 
     protected override void ProcessGameState(GameState? gameState)
     {
+        base.ProcessGameState(gameState);
+        
         if (gameState?.Map is null || !gameState.IsInGame())
         {
-            RoshanLastDeathClockTime = null;
-            
             return;
         }
         
@@ -70,6 +70,11 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 
         CheckAndNotifyAboutMinRespawn(currentTime);
         CheckAndNotifyAboutMaxRespawn(currentTime);
+    }
+
+    protected override void OnCurrentMatchIdChanged()
+    {
+        RoshanLastDeathClockTime = null;
     }
 
     private void CheckAndNotifyAboutMaxRespawn(TimeSpan currentTime)

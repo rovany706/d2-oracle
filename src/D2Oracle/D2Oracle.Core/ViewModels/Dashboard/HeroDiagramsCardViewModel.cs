@@ -10,7 +10,7 @@ using LiveChartsCore.SkiaSharpView;
 
 namespace D2Oracle.Core.ViewModels.Dashboard;
 
-public class HeroDiagramsCardViewModel : ViewModelBase
+public class HeroDiagramsCardViewModel : GameStateViewModelBase
 {
     private record NetWorthSample(int ClockTime, uint NetWorth);
 
@@ -19,7 +19,7 @@ public class HeroDiagramsCardViewModel : ViewModelBase
     private readonly ObservableCollection<NetWorthSample> netWorthValuesPerSecond = new();
 
     public HeroDiagramsCardViewModel(IDotaGsiService dotaGsiService, INetWorthCalculator netWorthCalculator,
-        IDispatcherService dispatcherService)
+        IDispatcherService dispatcherService) : base(dotaGsiService)
     {
         this.netWorthCalculator = netWorthCalculator;
         this.dispatcherService = dispatcherService;
@@ -42,17 +42,17 @@ public class HeroDiagramsCardViewModel : ViewModelBase
 
         NetWorthYAxes = new[] { new Axis { Name = Resources.Resources.NetWorth } };
     }
+    
+    public ObservableCollection<ISeries> NetWorthSeries { get; }
 
-    private void OnNewGameState(GameState? gameState)
+    public Axis[] NetWorthXAxes { get; }
+
+    public Axis[] NetWorthYAxes { get; }
+
+    protected override void OnNewGameState(GameState? gameState)
     {
-        // Reset graph if not in game
-        if (!gameState.IsInGame())
-        {
-            ClearGraph();
-
-            return;
-        }
-
+        base.OnNewGameState(gameState);
+        
         // Do not count net worth before game start
         if (gameState?.Map?.GameState != DotaGameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
         {
@@ -64,6 +64,12 @@ public class HeroDiagramsCardViewModel : ViewModelBase
             this.netWorthValuesPerSecond.Add(new NetWorthSample(gameState.Map.ClockTime,
                 this.netWorthCalculator.Calculate(gameState)));
         });
+
+    }
+
+    protected override void OnCurrentMatchIdChanged()
+    {
+        ClearGraph();
     }
 
     private void ClearGraph()
@@ -73,10 +79,4 @@ public class HeroDiagramsCardViewModel : ViewModelBase
             this.netWorthValuesPerSecond.Clear();
         }
     }
-
-    public ObservableCollection<ISeries> NetWorthSeries { get; }
-
-    public Axis[] NetWorthXAxes { get; }
-
-    public Axis[] NetWorthYAxes { get; }
 }

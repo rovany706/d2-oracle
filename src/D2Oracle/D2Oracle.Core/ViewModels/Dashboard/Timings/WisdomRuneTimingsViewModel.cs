@@ -47,7 +47,7 @@ public class WisdomRuneTimingsViewModel : ViewModelBase
 
     private readonly ObservableAsPropertyHelper<int> nextWisdomRunePercent;
 
-    public int NextWisdomRunePercent => nextWisdomRunePercent.Value;
+    public int NextWisdomRunePercent => this.nextWisdomRunePercent.Value;
 
 
     private readonly ObservableAsPropertyHelper<string> nextWisdomRuneTime;
@@ -61,7 +61,7 @@ public class WisdomRuneTimingsViewModel : ViewModelBase
 
     private async void OnWisdomRuneSpawnsSoon(object? sender, EventArgs e)
     {
-        await audioService.PlaySoundAsync(DotaSoundType.WisdomRuneSoon);
+        await this.audioService.PlaySoundAsync(DotaSoundType.WisdomRuneSoon);
     }
 
     private int CalculateRoshanEstimatedRespawnTimePercent(GameState? gameState)

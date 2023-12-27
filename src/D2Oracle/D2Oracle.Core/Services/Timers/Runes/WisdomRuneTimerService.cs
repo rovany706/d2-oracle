@@ -18,6 +18,8 @@ public class WisdomRuneTimerService : GameStateObserver, IWisdomRuneTimerService
     
     protected override void ProcessGameState(GameState? gameState)
     {
+        base.ProcessGameState(gameState);
+        
         if (gameState?.Map is null || !gameState.IsInGame())
         {
             return;
@@ -31,22 +33,27 @@ public class WisdomRuneTimerService : GameStateObserver, IWisdomRuneTimerService
         var clockTime = TimeSpan.FromSeconds(gameState.Map.ClockTime);
         var nextWisdomRuneMinute = clockTime.TotalMinutes.ClosestMultipleCeil(WisdomRuneSpawnTimeMultiplierInMinutes);
         var nextWisdomRuneTime = TimeSpan.FromMinutes(nextWisdomRuneMinute);
-        var notificationTime = nextWisdomRuneTime - timeBeforeNotification;
+        var notificationTime = nextWisdomRuneTime - this.timeBeforeNotification;
 
-        switch (isNotified)
+        switch (this.isNotified)
         {
             case false
                 when clockTime > notificationTime
                      && clockTime < nextWisdomRuneTime:
-                isNotified = true;
+                this.isNotified = true;
                 WisdomRuneSpawnsSoon?.Invoke(this, EventArgs.Empty);
 
                 break;
             case true when clockTime < nextWisdomRuneTime
                            && clockTime < notificationTime:
-                isNotified = false;
+                this.isNotified = false;
 
                 break;
         }
+    }
+
+    protected override void OnCurrentMatchIdChanged()
+    {
+        this.isNotified = false;
     }
 }

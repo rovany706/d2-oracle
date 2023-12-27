@@ -19,6 +19,6 @@ public class DashboardPageViewModel : ViewModelBase
     public bool IsDotaRunning
     {
         get => this.isDotaRunning;
-        set => this.RaiseAndSetIfChanged(ref isDotaRunning, value);
+        set => this.RaiseAndSetIfChanged(ref this.isDotaRunning, value);
     }
 }

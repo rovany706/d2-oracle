@@ -40,7 +40,7 @@ public class TimingsCardViewModel : ViewModelBase
 
     private readonly ObservableAsPropertyHelper<string> time;
 
-    public string Time => time.Value;
+    public string Time => this.time.Value;
 
     public RoshanTimingsViewModel RoshanTimingsViewModel { get; }
     public WisdomRuneTimingsViewModel WisdomRuneTimingsViewModel { get; }

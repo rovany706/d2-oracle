@@ -19,11 +19,11 @@ public class RoshanTimingsViewModel : ViewModelBase
             .Never<int>()
             .StartWith(50)
             .ToProperty(this, x => x.RoshanRespawnEstimatedPercent);
-        
+
         this.roshanTimerService = new MockRoshanTimerService();
         this.audioService = new MockDotaAudioService();
     }
-    
+
     public RoshanTimingsViewModel(IDotaGsiService dotaGsiService, IRoshanTimerService roshanTimerService,
         IDotaAudioService audioService)
     {
@@ -33,7 +33,7 @@ public class RoshanTimingsViewModel : ViewModelBase
         this.roshanRespawnEstimatedPercent = dotaGsiService.GameStateObservable
             .Select(CalculateRoshanEstimatedRespawnTimePercent)
             .ToProperty(this, x => x.RoshanRespawnEstimatedPercent);
-        
+
         Subscribe();
     }
 
@@ -41,19 +41,19 @@ public class RoshanTimingsViewModel : ViewModelBase
     {
         get
         {
-            var minTime = roshanTimerService.MinRoshanRespawnClockTime.FormatAsDotaTime();
-            var maxTime = roshanTimerService.MaxRoshanRespawnClockTime.FormatAsDotaTime();
+            var minTime = this.roshanTimerService.MinRoshanRespawnClockTime.FormatAsDotaTime();
+            var maxTime = this.roshanTimerService.MaxRoshanRespawnClockTime.FormatAsDotaTime();
 
             return $"{minTime} - {maxTime}";
         }
     }
 
-    public bool IsRoshanEstimatedTimeVisible => !roshanTimerService.IsRoshanAlive;
+    public bool IsRoshanEstimatedTimeVisible => !this.roshanTimerService.IsRoshanAlive;
 
     private readonly ObservableAsPropertyHelper<int> roshanRespawnEstimatedPercent;
 
-    public int RoshanRespawnEstimatedPercent => roshanRespawnEstimatedPercent.Value;
-    
+    public int RoshanRespawnEstimatedPercent => this.roshanRespawnEstimatedPercent.Value;
+
     private void Subscribe()
     {
         this.roshanTimerService.MinRoshanRespawnTimeReached += OnMinRoshanRespawnTimeReached;
@@ -66,7 +66,7 @@ public class RoshanTimingsViewModel : ViewModelBase
         var clockTimeDeltaRelativeToDeath =
             gameState?.Map?.ClockTime - this.roshanTimerService.RoshanLastDeathClockTime?.TotalSeconds;
         var respawnTimeRelativeToDeath = this.roshanTimerService.MaxRoshanRespawnClockTime?.TotalSeconds -
-                                         roshanTimerService.RoshanLastDeathClockTime?.TotalSeconds;
+                                         this.roshanTimerService.RoshanLastDeathClockTime?.TotalSeconds;
 
         return (int?)(clockTimeDeltaRelativeToDeath / respawnTimeRelativeToDeath * 100) ?? 100;
     }
@@ -79,12 +79,12 @@ public class RoshanTimingsViewModel : ViewModelBase
 
     private async void OnMaxRoshanRespawnTimeReached(object? sender, EventArgs e)
     {
-        await audioService.PlaySoundAsync(DotaSoundType.MaxRoshanTime);
+        await this.audioService.PlaySoundAsync(DotaSoundType.MaxRoshanTime);
         this.RaisePropertyChanged(nameof(IsRoshanEstimatedTimeVisible));
     }
 
     private async void OnMinRoshanRespawnTimeReached(object? sender, EventArgs e)
     {
-        await audioService.PlaySoundAsync(DotaSoundType.MinRoshanTime);
+        await this.audioService.PlaySoundAsync(DotaSoundType.MinRoshanTime);
     }
 }

@@ -88,38 +88,19 @@ public class RoshanTimerServiceTests : ReactiveTest
     }
 
     [Test]
-    public void RoshanLastDeathClockTime_WhenNotInGame_ReturnNull()
+    public void RoshanLastDeathClockTime_WhenMatchIdChanged_ReturnNull()
     {
-        const int expectedSeconds = 169;
         var scheduler = new TestScheduler();
         var observable = scheduler.CreateColdObservable(
-            OnNext(10, CreateGameStateWithRoshanDeathEvent(200, expectedSeconds)),
+            OnNext(10, CreateGameStateWithRoshanDeathEvent(200, 169)),
             OnNext(20,
                 GameStateTestHelper.CreateDefaultGameState() with
                 {
                     Map = GameStateTestHelper.CreateDefaultMap() with
                     {
-                        GameState = DotaGameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP
+                        Matchid = "111"
                     }
                 }));
-
-        var dotaGsiService = Substitute.For<IDotaGsiService>();
-        dotaGsiService.GameStateObservable.Returns(observable);
-
-        var sut = new RoshanTimerService(dotaGsiService);
-        scheduler.Start();
-
-        Assert.That(sut.RoshanLastDeathClockTime, Is.Null);
-    }
-
-    [Test]
-    public void RoshanLastDeathClockTime_WhenMapIsNull_ReturnNull()
-    {
-        const int expectedSeconds = 169;
-        var scheduler = new TestScheduler();
-        var observable = scheduler.CreateColdObservable(
-            OnNext(10, CreateGameStateWithRoshanDeathEvent(200, expectedSeconds)),
-            OnNext(20, GameStateTestHelper.CreateDefaultGameState() with { Map = null }));
 
         var dotaGsiService = Substitute.For<IDotaGsiService>();
         dotaGsiService.GameStateObservable.Returns(observable);

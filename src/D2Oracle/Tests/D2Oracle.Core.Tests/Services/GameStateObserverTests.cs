@@ -14,11 +14,14 @@ public class GameStateObserverTests : ReactiveTest
         {
         }
 
-        protected override void ProcessGameState(GameState? gameState)
+        public bool IsOnCurrentMatchIdChangedCalled { get; private set; }
+
+        protected override void OnCurrentMatchIdChanged()
         {
+            IsOnCurrentMatchIdChangedCalled = true;
         }
     }
-    
+
     [Test]
     public void Constructor_SubscribeToGameStateObservable()
     {
@@ -31,5 +34,20 @@ public class GameStateObserverTests : ReactiveTest
         _ = new TestGameStateObserver(dotaGsiService);
 
         Assert.That(input.Subscriptions, Is.Not.Empty);
+    }
+
+    [Test]
+    public void ProcessGameState_WhenMatchIdChanged_CallOnCurrentMatchIdChanged()
+    {
+        var scheduler = new TestScheduler();
+        var observable = scheduler.CreateColdObservable(OnNext(10, GameStateTestHelper.CreateDefaultGameState()));
+        var dotaGsiService = Substitute.For<IDotaGsiService>();
+        dotaGsiService.GameStateObservable.Returns(observable);
+
+        var sut = new TestGameStateObserver(dotaGsiService);
+        
+        scheduler.Start();
+        
+        Assert.That(sut.IsOnCurrentMatchIdChangedCalled);
     }
 }

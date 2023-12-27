@@ -4,5 +4,5 @@ public interface IWisdomRuneTimerService
 {
     public int WisdomRuneSpawnTimeMultiplierInMinutes { get; }
 
-    event EventHandler WisdomRuneSpawnsSoon;
+    event EventHandler? WisdomRuneSpawnsSoon;
 }

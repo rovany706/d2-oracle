@@ -33,8 +33,8 @@ public class CurrentStateInfoViewModel : ViewModelBase
     
     public bool IsConnected
     {
-        get => isConnected;
-        set => this.RaiseAndSetIfChanged(ref isConnected, value);
+        get => this.isConnected;
+        set => this.RaiseAndSetIfChanged(ref this.isConnected, value);
     }
 
     public TimingsCardViewModel TimingsCardViewModel { get; }

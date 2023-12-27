@@ -10,6 +10,6 @@ public class DotaAudioService : IDotaAudioService
     {
         var path = Path.Combine(Constants.ResourcesFolderPath, DotaSounds.DotaSoundsFileNames[soundType]);
 
-        return player.Play(path);
+        return this.player.Play(path);
     }
 }
