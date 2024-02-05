@@ -5,6 +5,7 @@
              xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:material="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
              xmlns:timings="clr-namespace:D2Oracle.Core.ViewModels.Dashboard.Timings;assembly=D2Oracle.Core"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -13,7 +14,7 @@
     <Design.DataContext>
         <timings:TimingsCardViewModel />
     </Design.DataContext>
-    <Border Classes="Card">
+    <suki:GlassCard>
         <StackPanel Orientation="Vertical">
             <TextBlock Classes="h1"
                        FontFamily="{StaticResource ReaverFont}"
@@ -42,5 +43,5 @@
             </Grid>
 
         </StackPanel>
-    </Border>
+    </suki:GlassCard>
 </UserControl>

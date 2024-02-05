@@ -6,21 +6,31 @@
              xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
              xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:DataType="dashboard:HeroDiagramsCardViewModel"
              mc:Ignorable="d">
-    <Border Classes="Card">
+    <Design.DataContext>
+        <dashboard:HeroDiagramsCardViewModel />
+    </Design.DataContext>
+    <suki:GlassCard>
         <Grid RowDefinitions="Auto, *">
-            <TextBlock Grid.Row="0"
-                       Classes="h2"
-                       FontFamily="{StaticResource ReaverFont}"
-                       FontWeight="Bold"
-                       Text="{x:Static d2Oracle:Resources.NetWorth}" />
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock Classes="h2"
+                           FontFamily="{StaticResource ReaverFont}"
+                           Text="{Binding NetWorth, StringFormat={x:Static d2Oracle:Resources.NetWorthFormat}}" />
+                <Image Width="40"
+                       Height="40"
+                       Margin="10,0,0,0"
+                       VerticalAlignment="Center"
+                       Source="avares://D2Oracle/Assets/gold_icon.png" />
+            </StackPanel>
+
             <lvc:CartesianChart Grid.Row="1"
                                 Series="{Binding NetWorthSeries}"
                                 XAxes="{Binding NetWorthXAxes}"
                                 YAxes="{Binding NetWorthYAxes}" />
         </Grid>
-    </Border>
+    </suki:GlassCard>
 </UserControl>

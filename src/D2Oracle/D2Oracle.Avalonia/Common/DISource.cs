@@ -3,7 +3,7 @@
 using System;
 using Avalonia.Markup.Xaml;
 
-namespace D2Oracle.Avalonia;
+namespace D2Oracle.Avalonia.Common;
 
 public class DISource : MarkupExtension
 {

@@ -5,6 +5,7 @@
              xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:dashboard="clr-namespace:D2Oracle.Core.ViewModels.Dashboard;assembly=D2Oracle.Core"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:DataType="dashboard:HeroStatsCardViewModel"
@@ -12,7 +13,7 @@
     <Design.DataContext>
         <dashboard:HeroStatsCardViewModel />
     </Design.DataContext>
-    <Border Classes="Card">
+    <suki:GlassCard>
         <StackPanel Margin="0,20,0,0">
             <WrapPanel Orientation="Horizontal">
                 <TextBlock Margin="0,0,0,5"
@@ -21,31 +22,29 @@
                            FontFamily="{StaticResource ReaverFont}"
                            FontWeight="Bold"
                            Text="{Binding HeroName}" />
-                <Button VerticalAlignment="Center"
+                <Button Margin="10,0,5,0"
+                        VerticalAlignment="Center"
                         Command="{Binding GoToDota2ProTracker}"
                         ToolTip.Placement="Bottom">
                     <ToolTip.Tip>
                         <StackPanel>
-                            <TextBlock FontSize="16"
-                                       Foreground="Black"
-                                       Text="{x:Static d2Oracle:Resources.Dota2ProTracker}" />
-                            <TextBlock Foreground="Black" Text="{x:Static d2Oracle:Resources.OpenInBrowser}" />
+                            <TextBlock FontSize="16" Text="{x:Static d2Oracle:Resources.Dota2ProTracker}" />
+                            <TextBlock Text="{x:Static d2Oracle:Resources.OpenInBrowser}" />
                         </StackPanel>
                     </ToolTip.Tip>
-                    <Image Source="{SvgImage ../../Assets/d2pt_icon.svg}" />
+                    <Image Height="18" Source="{SvgImage ../../Assets/d2pt_icon.svg}" />
                 </Button>
-                <Button VerticalAlignment="Center"
+                <Button Margin="5,0,0,0"
+                        VerticalAlignment="Center"
                         Command="{Binding GoToDotabuff}"
                         ToolTip.Placement="Bottom">
                     <ToolTip.Tip>
                         <StackPanel>
-                            <TextBlock FontSize="16"
-                                       Foreground="Black"
-                                       Text="{x:Static d2Oracle:Resources.Dotabuff}" />
-                            <TextBlock Foreground="Black" Text="{x:Static d2Oracle:Resources.OpenInBrowser}" />
+                            <TextBlock FontSize="16" Text="{x:Static d2Oracle:Resources.Dotabuff}" />
+                            <TextBlock Text="{x:Static d2Oracle:Resources.OpenInBrowser}" />
                         </StackPanel>
                     </ToolTip.Tip>
-                    <Image Source="avares://D2Oracle/Assets/dbuff_icon.png" />
+                    <Image Height="18" Source="avares://D2Oracle/Assets/dbuff_icon.png" />
                 </Button>
             </WrapPanel>
 
@@ -68,15 +67,6 @@
                            FontFamily="{StaticResource ReaverFont}"
                            Text="{Binding Xpm, StringFormat={x:Static d2Oracle:Resources.XpmFormat}}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Classes="h4"
-                           FontFamily="{StaticResource ReaverFont}"
-                           Text="{Binding NetWorth, StringFormat={x:Static d2Oracle:Resources.NetWorthFormat}}" />
-                <Image Width="25"
-                       Height="25"
-                       Margin="5,0,0,0"
-                       Source="avares://D2Oracle/Assets/gold_icon.png" />
-            </StackPanel>
         </StackPanel>
-    </Border>
+    </suki:GlassCard>
 </UserControl>

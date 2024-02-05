@@ -15,7 +15,6 @@ public class HeroStatsCardViewModel : ViewModelBase
     private const string Dota2ProTrackerHeroUrlTemplate = "https://dota2protracker.com/hero/{0}";
 
     private readonly IDotaKnowledgeService dotaKnowledgeService;
-    private readonly INetWorthCalculator netWorthCalculator;
 
     /// <summary>
     /// Constructor for designer
@@ -36,18 +35,11 @@ public class HeroStatsCardViewModel : ViewModelBase
             .Never<uint>()
             .StartWith((uint)600)
             .ToProperty(this, x => x.Xpm);
-
-        this.netWorth = Observable
-            .Never<uint>()
-            .StartWith((uint)555)
-            .ToProperty(this, x => x.NetWorth);
     }
 
-    public HeroStatsCardViewModel(IDotaGsiService dotaGsiService, IDotaKnowledgeService dotaKnowledgeService,
-        INetWorthCalculator netWorthCalculator)
+    public HeroStatsCardViewModel(IDotaGsiService dotaGsiService, IDotaKnowledgeService dotaKnowledgeService)
     {
         this.dotaKnowledgeService = dotaKnowledgeService;
-        this.netWorthCalculator = netWorthCalculator;
 
         this.heroName = dotaGsiService.GameStateObservable
             .Select(GetHeroName)
@@ -60,10 +52,6 @@ public class HeroStatsCardViewModel : ViewModelBase
         this.xpm = dotaGsiService.GameStateObservable
             .Select(x => x?.Player?.Xpm ?? 0)
             .ToProperty(this, x => x.Xpm);
-
-        this.netWorth = dotaGsiService.GameStateObservable
-            .Select(this.netWorthCalculator.Calculate)
-            .ToProperty(this, x => x.NetWorth);
         
         var isHeroPicked = this
             .WhenAnyValue(x => x.HeroName)
@@ -93,10 +81,6 @@ public class HeroStatsCardViewModel : ViewModelBase
     private readonly ObservableAsPropertyHelper<uint> xpm;
 
     public uint Xpm => this.xpm.Value;
-
-    private readonly ObservableAsPropertyHelper<uint> netWorth;
-
-    public uint NetWorth => this.netWorth.Value;
 
     public ReactiveCommand<Unit, Unit> GoToDotabuff { get; }
     public ReactiveCommand<Unit, Unit> GoToDota2ProTracker { get; }

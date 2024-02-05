@@ -6,8 +6,8 @@ namespace D2Oracle.Core.Services.Timers.Roshan;
 
 public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 {
-    private const int MinRoshanRespawnTimeInMinutes = 8;
-    private const int MaxRoshanRespawnTimeInMinutes = 11;
+    private readonly TimeSpan minRoshanRespawnTime = TimeSpan.FromMinutes(8);
+    private readonly TimeSpan maxRoshanRespawnTime = TimeSpan.FromMinutes(11);
 
     private bool isNotifiedAboutMinRoshanRespawnTime;
     private bool isNotifiedAboutMaxRoshanRespawnTime;
@@ -24,10 +24,10 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
     public event EventHandler? RoshanLastDeathClockTimeChanged;
 
     public TimeSpan? MinRoshanRespawnClockTime => RoshanLastDeathClockTime?
-        .Add(TimeSpan.FromMinutes(MinRoshanRespawnTimeInMinutes));
+        .Add(this.minRoshanRespawnTime);
 
     public TimeSpan? MaxRoshanRespawnClockTime => RoshanLastDeathClockTime?
-        .Add(TimeSpan.FromMinutes(MaxRoshanRespawnTimeInMinutes));
+        .Add(this.maxRoshanRespawnTime);
 
     public TimeSpan? RoshanLastDeathClockTime
     {

@@ -5,7 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using D2Oracle.Core.ViewModels;
 
-namespace D2Oracle.Avalonia;
+namespace D2Oracle.Avalonia.Common;
 
 public class ViewLocator : IDataTemplate
 {

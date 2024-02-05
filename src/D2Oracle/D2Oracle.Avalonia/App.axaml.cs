@@ -1,6 +1,8 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Styling;
+using D2Oracle.Avalonia.Common;
 using D2Oracle.Avalonia.Services;
 using D2Oracle.Core.Configuration;
 using D2Oracle.Avalonia.Views;
@@ -8,6 +10,7 @@ using D2Oracle.Core.Services;
 using LazyProxy.ServiceProvider;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SukiUI;
 
 namespace D2Oracle.Avalonia;
 
@@ -26,7 +29,7 @@ public partial class App : Application
         DISource.Resolver = type => AppHost.Services.GetRequiredService(type);
         await AppHost.StartAsync();
         
-        SukiUI.ColorTheme.LoadDarkTheme(Current);
+        SukiTheme.GetInstance().ChangeBaseTheme(ThemeVariant.Dark);
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.ShutdownRequested += DesktopOnShutdownRequested;

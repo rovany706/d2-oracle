@@ -34,7 +34,7 @@
         <value>Alive</value>
     </data>
     <data name="NetWorthFormat" xml:space="preserve">
-        <value>Net worth: {0}</value>
+        <value>Net worth: ~ {0:### ###}</value>
     </data>
     <data name="AppName" xml:space="preserve">
         <value>D2Oracle</value>

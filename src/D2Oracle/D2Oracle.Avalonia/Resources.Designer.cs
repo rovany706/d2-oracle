@@ -132,7 +132,7 @@ namespace D2Oracle.Avalonia {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Net worth: {0}.
+        ///   Looks up a localized string similar to Net worth: ~ {0:### ###}.
         /// </summary>
         public static string NetWorthFormat {
             get {

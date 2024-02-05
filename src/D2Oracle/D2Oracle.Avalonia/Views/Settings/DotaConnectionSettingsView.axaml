@@ -4,21 +4,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:d2Oracle="clr-namespace:D2Oracle.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System.ObjectModel"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
              xmlns:viewModels="clr-namespace:D2Oracle.Core.ViewModels.Settings;assembly=D2Oracle.Core"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:DataType="viewModels:DotaConnectionSettingsViewModel"
              mc:Ignorable="d">
-    <Border Classes="Card">
-        <StackPanel Orientation="Vertical">
-            <TextBlock Classes="h3"
-                       FontFamily="{StaticResource ReaverFont}"
-                       FontWeight="Bold"
-                       Text="Dota 2 connection" />
-            <Button Classes="Primary"
-                    Command="{Binding AutomaticInstall}"
-                    Content="{x:Static d2Oracle:Resources.SelectDota2Folder}"
-                    Foreground="White" />
-        </StackPanel>
-    </Border>
+    <suki:SettingsLayout>
+        <suki:SettingsLayout.Items>
+            <objectModel:ObservableCollection x:TypeArguments="suki:SettingsLayoutItem">
+                <suki:SettingsLayoutItem Header="Dota 2 Connection">
+                    <suki:SettingsLayoutItem.Content>
+                        <StackPanel Orientation="Vertical">
+                            <Button Classes="Flat"
+                                    Command="{Binding AutomaticInstall}"
+                                    Content="{x:Static d2Oracle:Resources.SelectDota2Folder}"
+                                    Foreground="White" />
+                        </StackPanel>
+                    </suki:SettingsLayoutItem.Content>
+                </suki:SettingsLayoutItem>
+            </objectModel:ObservableCollection>
+        </suki:SettingsLayout.Items>
+    </suki:SettingsLayout>
 </UserControl>

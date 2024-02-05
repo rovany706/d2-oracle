@@ -7,6 +7,10 @@ public abstract class GameStateViewModelBase : ViewModelBase
 {
     private string lastMatchId;
 
+    public GameStateViewModelBase()
+    {
+    }
+
     protected GameStateViewModelBase(IDotaGsiService dotaGsiService)
     {
         dotaGsiService.GameStateObservable.Subscribe(OnNewGameState);

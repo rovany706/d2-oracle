@@ -1,17 +1,20 @@
 <Application x:Class="D2Oracle.Avalonia.App"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:D2Oracle.Avalonia"
+             xmlns:common="clr-namespace:D2Oracle.Avalonia.Common"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:sukiUi="clr-namespace:SukiUI;assembly=SukiUI"
              RequestedThemeVariant="Default">
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.DataTemplates>
-        <local:ViewLocator />
+        <common:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Styles>
-        <!-- <FluentTheme /> -->
-        <StyleInclude Source="avares://SukiUI/Theme/Index.xaml" />
+        <FluentTheme />
+        <sukiUi:SukiTheme ThemeColor="Red" />
+        <icons:MaterialIconStyles />
     </Application.Styles>
 
     <Application.Resources>

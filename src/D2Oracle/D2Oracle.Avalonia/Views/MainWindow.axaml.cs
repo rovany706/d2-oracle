@@ -1,11 +1,11 @@
 using Avalonia.Controls.Notifications;
 using Avalonia.Interactivity;
-using Avalonia.ReactiveUI;
 using D2Oracle.Core.ViewModels;
+using SukiUI.Controls;
 
 namespace D2Oracle.Avalonia.Views;
 
-public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
+public partial class MainWindow : SukiWindow
 {
     public MainWindow(MainWindowViewModel viewModel)
     {

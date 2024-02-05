@@ -45,13 +45,16 @@
               RowDefinitions="*,*">
             <ContentControl Grid.Row="0"
                             Grid.Column="0"
+                            Margin="10"
                             Content="{Binding TimingsCardViewModel}" />
             <ContentControl Grid.Row="0"
                             Grid.Column="1"
+                            Margin="10"
                             Content="{Binding HeroStatsCardViewModel}" />
             <ContentControl Grid.Row="1"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
+                            Margin="10"
                             Content="{Binding HeroDiagramsCardViewModel}" />
         </Grid>
     </Grid>
