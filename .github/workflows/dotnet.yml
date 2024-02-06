@@ -28,12 +28,12 @@ jobs:
         working-directory: ./src/D2Oracle
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: 'true'
     
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.x
     - name: Restore dependencies
@@ -45,7 +45,7 @@ jobs:
     - name: Publish
       run: dotnet publish D2Oracle.Avalonia/D2Oracle.Avalonia.csproj -r ${{ matrix.rid }} --self-contained true -c Release -o Release
     - name: Upload build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build-${{ matrix.rid }}
         path: ./src/D2Oracle/Release
