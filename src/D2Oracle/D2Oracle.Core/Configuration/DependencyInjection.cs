@@ -41,6 +41,7 @@ public static class DependencyInjection
         services.AddSingleton<IWisdomRuneTimerService, WisdomRuneTimerService>();
         services.AddSingleton<IDotaConfigInstallationService, DotaConfigInstallationService>();
         services.AddSingleton<IDotaProcessLocator, DotaProcessLocator>();
+        services.AddSingleton<IRoshanItemDropService, RoshanItemDropService>();
         services.AddSingleton<IFileSystem>(new FileSystem());
 
         return services;
@@ -58,6 +59,7 @@ public static class DependencyInjection
         services.AddTransient<RoshanTimingsViewModel>();
         services.AddTransient<WisdomRuneTimingsViewModel>();
         services.AddTransient<DotaConnectionSettingsViewModel>();
+        services.AddTransient<RoshanNextItemsDropViewModel>();
 
         return services;
     }

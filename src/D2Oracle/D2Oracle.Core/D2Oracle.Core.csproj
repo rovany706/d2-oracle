@@ -16,10 +16,10 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
       <PackageReference Include="NetCoreAudio" Version="2.0.0" />
-      <PackageReference Include="ReactiveUI" Version="19.5.41" />
+      <PackageReference Include="ReactiveUI" Version="19.6.12" />
       <PackageReference Include="System.Reactive" Version="6.0.0" />
-      <PackageReference Include="TestableIO.System.IO.Abstractions" Version="20.0.15" />
-      <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="20.0.15" />
+      <PackageReference Include="TestableIO.System.IO.Abstractions" Version="21.0.2" />
+      <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="21.0.2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -38,23 +38,30 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Resources\items.json">
+      <None Update="Resources\sound\8min.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\heroes.json">
+      <None Update="Resources\sound\11min.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\11min.mp3">
+      <None Update="Resources\sound\wisdom_rune_soon.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\8min.mp3">
+      <None Update="Resources\json\heroes.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\wisdom_rune_soon.mp3">
+      <None Update="Resources\json\items.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\json\roshan_items.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
 
 
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\img\" />
     </ItemGroup>
 
 

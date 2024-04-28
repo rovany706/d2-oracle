@@ -20,7 +20,7 @@
                        FontFamily="{StaticResource ReaverFont}"
                        FontWeight="Bold"
                        Text="{x:Static d2Oracle:Resources.Timings}" />
-            <Grid RowDefinitions="Auto,*">
+            <Grid RowDefinitions="Auto,*,Auto">
                 <StackPanel Grid.Row="0"
                             HorizontalAlignment="Center"
                             Orientation="Horizontal">
@@ -40,6 +40,8 @@
                                     VerticalContentAlignment="Center"
                                     Content="{Binding WisdomRuneTimingsViewModel}" />
                 </Grid>
+
+                <ContentControl Grid.Row="2" Content="{Binding RoshanNextItemsDropViewModel}" />
             </Grid>
 
         </StackPanel>

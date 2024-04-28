@@ -12,6 +12,7 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
     private bool isNotifiedAboutMinRoshanRespawnTime;
     private bool isNotifiedAboutMaxRoshanRespawnTime;
     private TimeSpan? roshanLastDeathClockTime;
+    private int deathCount = 0;
 
     public RoshanTimerService(IDotaGsiService dotaGsiService) : base(dotaGsiService)
     {
@@ -34,12 +35,13 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
         get => this.roshanLastDeathClockTime;
         private set
         {
-            if (this.roshanLastDeathClockTime.Equals(value))
+            if (this.roshanLastDeathClockTime.EqualsWithPrecision(value, TimeSpan.FromSeconds(2)))
             {
                 return;
             }
             
             this.roshanLastDeathClockTime = value;
+            this.deathCount++;
             this.isNotifiedAboutMinRoshanRespawnTime = this.isNotifiedAboutMaxRoshanRespawnTime = false;
             RoshanLastDeathClockTimeChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -75,6 +77,7 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
     protected override void OnCurrentMatchIdChanged()
     {
         RoshanLastDeathClockTime = null;
+        this.deathCount = 0;
     }
 
     private void CheckAndNotifyAboutMaxRespawn(TimeSpan currentTime)

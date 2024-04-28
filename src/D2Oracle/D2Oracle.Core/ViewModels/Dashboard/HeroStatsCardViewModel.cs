@@ -3,7 +3,6 @@ using System.Reactive;
 using System.Reactive.Linq;
 using D2Oracle.Core.Services;
 using D2Oracle.Core.Services.DotaKnowledge;
-using D2Oracle.Core.Services.NetWorth;
 using Dota2GSI;
 using ReactiveUI;
 

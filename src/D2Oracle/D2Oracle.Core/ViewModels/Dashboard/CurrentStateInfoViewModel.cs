@@ -16,6 +16,7 @@ public class CurrentStateInfoViewModel : ViewModelBase
     {
         TimingsCardViewModel = new TimingsCardViewModel();
         HeroStatsCardViewModel = new HeroStatsCardViewModel();
+        IsConnected = true;
     }
 
     public CurrentStateInfoViewModel(IDotaGsiService dotaGsiService, TimingsCardViewModel timingsCardViewModel,

@@ -7,13 +7,14 @@ namespace D2Oracle.Avalonia.Views;
 
 public partial class MainWindow : SukiWindow
 {
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     public MainWindow(MainWindowViewModel viewModel)
     {
         InitializeComponent();
         DataContext = viewModel;
     }
 
-    public WindowNotificationManager WindowNotificationManager { get; private set; }
+    public WindowNotificationManager? WindowNotificationManager { get; private set; }
 
     private void Window_OnLoaded(object? sender, RoutedEventArgs e)
     {

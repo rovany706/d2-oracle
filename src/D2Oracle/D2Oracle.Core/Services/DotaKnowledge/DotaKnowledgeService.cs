@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using D2Oracle.Core.Resources;
+using D2Oracle.Core.Services.DotaKnowledge.Models;
 
 namespace D2Oracle.Core.Services.DotaKnowledge;
 
 public class DotaKnowledgeService : IDotaKnowledgeService
 {
-    private readonly JsonSerializer serializer = CreateSerializer();
     private Dictionary<string, uint>? items;
     private Dictionary<string, string>? heroes;
 
@@ -31,7 +30,7 @@ public class DotaKnowledgeService : IDotaKnowledgeService
         }
     }
 
-    private Dictionary<string, uint> GetItemsDictionary()
+    private static Dictionary<string, uint> GetItemsDictionary()
     {
         return DeserializeDictionary<ItemDescription, string, uint>(
             "items.json",
@@ -40,7 +39,7 @@ public class DotaKnowledgeService : IDotaKnowledgeService
         );
     }
 
-    private Dictionary<string, string> GetHeroesDictionary()
+    private static Dictionary<string, string> GetHeroesDictionary()
     {
         return DeserializeDictionary<HeroDescription, string, string>(
             "heroes.json",
@@ -49,37 +48,11 @@ public class DotaKnowledgeService : IDotaKnowledgeService
         );
     }
 
-    private Dictionary<TKey, TValue> DeserializeDictionary<TSource, TKey, TValue>(string resourceFileName,
+    private static Dictionary<TKey, TValue> DeserializeDictionary<TSource, TKey, TValue>(string resourceFileName,
         Func<TSource, TKey> keySelector, Func<TSource, TValue> valueSelector) where TKey : notnull
     {
-        var sourceList = DeserializeResource<List<TSource>>(this.serializer, resourceFileName);
+        var sourceList = JsonResourceDeserializer.DeserializeResource<List<TSource>>(resourceFileName);
 
         return sourceList.ToDictionary(keySelector, valueSelector);
-    }
-
-    private static JsonSerializer CreateSerializer()
-    {
-        var serializer = JsonSerializer.Create(new JsonSerializerSettings
-        {
-            ContractResolver = new DefaultContractResolver
-            {
-                NamingStrategy = new SnakeCaseNamingStrategy()
-            }
-        });
-
-        return serializer;
-    }
-
-    private static T DeserializeResource<T>(JsonSerializer serializer, string resourceFileName)
-    {
-        var resourceFilePath = GetResourceFilePath(resourceFileName);
-        using var streamReader = File.OpenText(resourceFilePath);
-
-        return (T)serializer.Deserialize(streamReader, typeof(T))!;
-    }
-
-    private static string GetResourceFilePath(string resourceFileName)
-    {
-        return Path.Combine(Constants.ResourcesFolderPath, resourceFileName);
     }
 }

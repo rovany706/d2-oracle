@@ -76,7 +76,7 @@
                         <icons:MaterialIcon Kind="Gamepad" />
                     </suki:SukiSideMenuItem.Icon>
                     <suki:SukiSideMenuItem.PageContent>
-                        <dashboard:DashboardView />
+                        <dashboard:DashboardView DataContext="{Binding DashboardPageViewModel}" />
                     </suki:SukiSideMenuItem.PageContent>
                 </suki:SukiSideMenuItem>
 
@@ -85,7 +85,7 @@
                         <icons:MaterialIcon Kind="Settings" />
                     </suki:SukiSideMenuItem.Icon>
                     <suki:SukiSideMenuItem.PageContent>
-                        <settings:SettingsView />
+                        <settings:SettingsView DataContext="{Binding SettingsViewModel}" />
                     </suki:SukiSideMenuItem.PageContent>
                 </suki:SukiSideMenuItem>
             </suki:SukiSideMenu.Items>
