@@ -2,7 +2,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
-using D2Oracle.Avalonia.Common;
 using D2Oracle.Avalonia.Services;
 using D2Oracle.Core.Configuration;
 using D2Oracle.Avalonia.Views;
@@ -26,7 +25,6 @@ public partial class App : Application
     public override async void OnFrameworkInitializationCompleted()
     {
         AppHost = CreateAppHost();
-        DISource.Resolver = type => AppHost.Services.GetRequiredService(type);
         await AppHost.StartAsync();
         
         SukiTheme.GetInstance().ChangeBaseTheme(ThemeVariant.Dark);
