@@ -61,7 +61,7 @@ public static class GameStateTestHelper
 
     public static Hero CreateDefaultHero()
     {
-        return new Hero(7711, -7878, 100, "npc_dota_hero_tusk", 30, 64400, true, 0, 7929, 0, 3736, 3745, 99, 1047, 1047, 100,
+        return new Hero(1, 7711, -7878, 100, "npc_dota_hero_tusk", 30, 64400, true, 0, 7929, 0, 3736, 3745, 99, 1047, 1047, 100,
             false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true,
             true, true, true, 7);
     }
