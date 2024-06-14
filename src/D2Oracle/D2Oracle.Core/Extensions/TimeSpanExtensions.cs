@@ -4,7 +4,17 @@ public static class TimeSpanExtensions
 {
     public static bool EqualsWithPrecision(this TimeSpan? value, TimeSpan? otherValue, TimeSpan delta)
     {
-        return value is not null && otherValue is not null && EqualsWithPrecision(value.Value, otherValue.Value, delta);
+        if (value is null && otherValue is null)
+        {
+            return true;
+        }
+
+        if (value is null || otherValue is null)
+        {
+            return false;
+        }
+        
+        return EqualsWithPrecision(value.Value, otherValue.Value, delta);
     }
     
     public static bool EqualsWithPrecision(this TimeSpan value, TimeSpan otherValue, TimeSpan delta)

@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+using Avalonia.Controls;
 using Avalonia.Controls.Notifications;
 using Avalonia.Interactivity;
 using D2Oracle.Core.ViewModels;
@@ -23,5 +25,10 @@ public partial class MainWindow : SukiWindow
             Position = NotificationPosition.TopRight,
             MaxItems = 1
         };
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            SystemDecorations = SystemDecorations.Full;
+        }
     }
 }

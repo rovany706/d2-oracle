@@ -1,28 +1,47 @@
-﻿using System.Diagnostics;
-using System.Reactive.Subjects;
+﻿using System.Reactive.Subjects;
 using D2Oracle.Core.Extensions;
 using D2Oracle.Core.Services.Timers.Roshan;
 using Dota2GSI;
-using Dota2GSI.Nodes.Events;
 
 namespace D2Oracle.Core.Services.DotaKnowledge;
 
 public class RoshanItemDropService : GameStateObserver, IRoshanItemDropService
 {
-    private int deathCount = 2;
-    private readonly Subject<IEnumerable<string>> itemsValues = new();
+    private readonly IRoshanDeathObserverService roshanDeathObserverService;
+    private readonly Subject<IEnumerable<string>> currentItemsValues = new();
+    private readonly Subject<IEnumerable<string>> lastItemsValues = new();
     private readonly RoshanDeathItemProvider itemProvider = new();
     private bool isDaytime;
 
-    public RoshanItemDropService(IDotaGsiService dotaGsiService) : base(dotaGsiService)
+    public RoshanItemDropService(IRoshanDeathObserverService roshanDeathObserverService, IDotaGsiService dotaGsiService)
+        : base(dotaGsiService)
     {
+        this.roshanDeathObserverService = roshanDeathObserverService;
+
+        this.roshanDeathObserverService.IsRoshanAliveChanged += OnIsRoshanAliveChanged;
     }
 
-    public IObservable<IEnumerable<string>> Items => this.itemsValues;
-    
+    private void OnIsRoshanAliveChanged(object? sender, EventArgs e)
+    {
+        // Roshan died
+        if (this.roshanDeathObserverService.IsRoshanAlive == false)
+        {
+            PushNewCurrentItems();
+            PushNewLastItems();
+        }
+    }
+
+    public IObservable<IEnumerable<string>> CurrentItems => this.currentItemsValues;
+    public IObservable<IEnumerable<string>> LastItems => this.lastItemsValues;
+
     public IEnumerable<string> GetCurrentItems()
     {
-        return GetCurrentRoshanItems();
+        return GetRoshanItems(this.roshanDeathObserverService.RoshanDeathCount);
+    }
+    
+    public IEnumerable<string> GetLastItems()
+    {
+        return GetRoshanItems(this.roshanDeathObserverService.RoshanDeathCount - 1);
     }
 
     private bool IsDaytime
@@ -34,10 +53,15 @@ public class RoshanItemDropService : GameStateObserver, IRoshanItemDropService
             {
                 return;
             }
-            
+
             this.isDaytime = value;
-            PushNewItems();
+            OnIsDaytimeChanged();
         }
+    }
+
+    private void OnIsDaytimeChanged()
+    {
+        PushNewCurrentItems();
     }
 
     protected override void ProcessGameState(GameState? gameState)
@@ -48,45 +72,42 @@ public class RoshanItemDropService : GameStateObserver, IRoshanItemDropService
         {
             return;
         }
-        
+
         IsDaytime = gameState.Map.Daytime;
-        
-        var roshanDeathEvent = GetRoshanDeathEvent(gameState);
-        if (roshanDeathEvent is not null)
-        {
-            this.deathCount++;
-            PushNewItems();
-        }
     }
-    
+
     protected override void OnCurrentMatchIdChanged()
     {
-        this.deathCount = 2;
+        // Reset items
+        this.currentItemsValues.OnNext(GetRoshanItems(0));
+        this.lastItemsValues.OnNext(Array.Empty<string>());
     }
 
-    private void PushNewItems()
+    private void PushNewCurrentItems()
     {
-        var currentRoshanItems = GetCurrentRoshanItems();
-        Debug.Write($"SET NEW ITEMS ");
-        foreach (var currentRoshanItem in currentRoshanItems)
+        var currentRoshanItems = GetCurrentItems();
+        this.currentItemsValues.OnNext(currentRoshanItems);
+    }
+
+    private void PushNewLastItems()
+    {
+        // Roshan didn't die, so no items dropped before
+        if (this.roshanDeathObserverService.RoshanDeathCount == 0)
         {
-            Debug.Write(currentRoshanItem);
-        }
-        Debug.WriteLine("");
-
-        this.itemsValues.OnNext(currentRoshanItems);
-    }
-
-    private IReadOnlyList<string> GetCurrentRoshanItems()
-    {
-        var index = Math.Clamp(this.deathCount, 0, this.itemProvider.RoshanItemDrops.Count);
-        var itemDrops = this.itemProvider.RoshanItemDrops[index];
+            this.lastItemsValues.OnNext(Array.Empty<string>());
         
-        return IsDaytime ? itemDrops.DayItems : itemDrops.NightItems;
+            return;
+        }
+
+        var lastItems = GetLastItems();
+        this.lastItemsValues.OnNext(lastItems);
     }
 
-    private static DotaEvent? GetRoshanDeathEvent(GameState gameState)
+    private IEnumerable<string> GetRoshanItems(int roshanDeathCount)
     {
-        return gameState.Events.SingleOrDefault(x => x.EventType == DotaEventType.RoshanKilled);
+        var index = Math.Clamp(roshanDeathCount, 0, this.itemProvider.RoshanItemDrops.Count - 1);
+        var itemDrops = this.itemProvider.RoshanItemDrops[index];
+
+        return IsDaytime ? itemDrops.DayItems : itemDrops.NightItems;
     }
 }

@@ -2,7 +2,7 @@
 
 public interface IRoshanItemDropService
 {
-    IObservable<IEnumerable<string>> Items { get; }
-
-    IEnumerable<string> GetCurrentItems();
+    IObservable<IEnumerable<string>> CurrentItems { get; }
+    
+    IObservable<IEnumerable<string>> LastItems { get; }
 }

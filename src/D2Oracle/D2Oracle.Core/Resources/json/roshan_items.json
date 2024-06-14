@@ -8,7 +8,7 @@
     "night_items": [ "item_aegis", "item_cheese" ]
   },
   {
-    "day_items": [ "item_aegis", "item_roshans_banner", "item_ultimate_scepter_roshan" ],
-    "night_items": [ "item_aegis", "item_cheese", "item_refresher_shard" ]
+    "day_items": [ "item_aegis", "item_roshans_banner", "item_refresher_shard" ],
+    "night_items": [ "item_aegis", "item_cheese", "item_ultimate_scepter_roshan" ]
   }
 ]

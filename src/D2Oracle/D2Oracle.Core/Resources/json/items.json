@@ -557,11 +557,11 @@
     },
     {
         "name": "item_recipe_holy_locket",
-        "cost": "900"
+        "cost": "800"
     },
     {
         "name": "item_holy_locket",
-        "cost": "2350"
+        "cost": "2250"
     },
     {
         "name": "item_recipe_pipe",
@@ -601,11 +601,11 @@
     },
     {
         "name": "item_recipe_orchid",
-        "cost": "650"
+        "cost": "450"
     },
     {
         "name": "item_orchid",
-        "cost": "3475"
+        "cost": "3275"
     },
     {
         "name": "item_recipe_bloodthorn",
@@ -613,7 +613,7 @@
     },
     {
         "name": "item_bloodthorn",
-        "cost": "6825"
+        "cost": "6625"
     },
     {
         "name": "item_recipe_echo_sabre",
@@ -793,15 +793,15 @@
     },
     {
         "name": "item_recipe_shivas_guard",
-        "cost": "1700"
+        "cost": "2050"
     },
     {
         "name": "item_shivas_guard",
-        "cost": "4825"
+        "cost": "5175"
     },
     {
         "name": "item_recipe_bloodstone",
-        "cost": "700"
+        "cost": "0"
     },
     {
         "name": "item_bloodstone",
@@ -825,11 +825,11 @@
     },
     {
         "name": "item_recipe_meteor_hammer",
-        "cost": "600"
+        "cost": "300"
     },
     {
         "name": "item_meteor_hammer",
-        "cost": "3100"
+        "cost": "2850"
     },
     {
         "name": "item_recipe_nullifier",
@@ -849,15 +849,18 @@
     },
     {
         "name": "item_recipe_kaya",
-        "cost": "600"
+        "cost": "650"
     },
     {
         "name": "item_kaya",
-        "cost": "2050"
+        "cost": "2100"
     },
     {
         "name": "item_trident",
-        "cost": "0"
+        "cost": "6301"
+    },
+    {
+        "name": "item_combo_breaker"
     },
     {
         "name": "item_refresher_shard",
@@ -889,11 +892,11 @@
     },
     {
         "name": "item_recipe_blade_mail",
-        "cost": "550"
+        "cost": "750"
     },
     {
         "name": "item_blade_mail",
-        "cost": "2100"
+        "cost": "2300"
     },
     {
         "name": "item_recipe_soul_booster",
@@ -913,11 +916,11 @@
     },
     {
         "name": "item_recipe_eternal_shroud",
-        "cost": "800"
+        "cost": "900"
     },
     {
         "name": "item_eternal_shroud",
-        "cost": "3600"
+        "cost": "3700"
     },
     {
         "name": "item_recipe_rapier",
@@ -929,11 +932,11 @@
     },
     {
         "name": "item_recipe_monkey_king_bar",
-        "cost": "800"
+        "cost": "600"
     },
     {
         "name": "item_monkey_king_bar",
-        "cost": "4900"
+        "cost": "4700"
     },
     {
         "name": "item_recipe_radiance",
@@ -981,7 +984,7 @@
     },
     {
         "name": "item_manta",
-        "cost": "4600"
+        "cost": "4650"
     },
     {
         "name": "item_recipe_lesser_crit",
@@ -1029,7 +1032,7 @@
     },
     {
         "name": "item_sange_and_yasha",
-        "cost": "4100"
+        "cost": "4200"
     },
     {
         "name": "item_recipe_kaya_and_sange",
@@ -1037,7 +1040,7 @@
     },
     {
         "name": "item_kaya_and_sange",
-        "cost": "4100"
+        "cost": "4200"
     },
     {
         "name": "item_recipe_yasha_and_kaya",
@@ -1045,7 +1048,7 @@
     },
     {
         "name": "item_yasha_and_kaya",
-        "cost": "4100"
+        "cost": "4200"
     },
     {
         "name": "item_recipe_satanic",
@@ -1073,11 +1076,11 @@
     },
     {
         "name": "item_recipe_sange",
-        "cost": "600"
+        "cost": "650"
     },
     {
         "name": "item_sange",
-        "cost": "2050"
+        "cost": "2100"
     },
     {
         "name": "item_recipe_helm_of_the_dominator",
@@ -1089,11 +1092,11 @@
     },
     {
         "name": "item_recipe_helm_of_the_overlord",
-        "cost": "775"
+        "cost": "300"
     },
     {
         "name": "item_helm_of_the_overlord",
-        "cost": "6200"
+        "cost": "5725"
     },
     {
         "name": "item_recipe_maelstrom",
@@ -1105,11 +1108,11 @@
     },
     {
         "name": "item_recipe_gungir",
-        "cost": "450"
+        "cost": "250"
     },
     {
         "name": "item_gungir",
-        "cost": "5650"
+        "cost": "5450"
     },
     {
         "name": "item_recipe_desolator",
@@ -1121,11 +1124,11 @@
     },
     {
         "name": "item_recipe_yasha",
-        "cost": "600"
+        "cost": "650"
     },
     {
         "name": "item_yasha",
-        "cost": "2050"
+        "cost": "2100"
     },
     {
         "name": "item_recipe_mask_of_madness",
@@ -1145,11 +1148,11 @@
     },
     {
         "name": "item_recipe_disperser",
-        "cost": "400"
+        "cost": "800"
     },
     {
         "name": "item_disperser",
-        "cost": "5700"
+        "cost": "6100"
     },
     {
         "name": "item_recipe_ethereal_blade",
@@ -1185,7 +1188,7 @@
     },
     {
         "name": "item_orb_of_venom",
-        "cost": "275"
+        "cost": "250"
     },
     {
         "name": "item_blight_stone",
@@ -1197,7 +1200,7 @@
     },
     {
         "name": "item_orb_of_corrosion",
-        "cost": "900"
+        "cost": "875"
     },
     {
         "name": "item_recipe_falcon_blade",
@@ -1209,11 +1212,11 @@
     },
     {
         "name": "item_recipe_mage_slayer",
-        "cost": "200"
+        "cost": "400"
     },
     {
         "name": "item_mage_slayer",
-        "cost": "2625"
+        "cost": "2825"
     },
     {
         "name": "item_recipe_ancient_janggo",
@@ -1281,11 +1284,11 @@
     },
     {
         "name": "item_recipe_devastator",
-        "cost": "0"
+        "cost": "400"
     },
     {
         "name": "item_devastator",
-        "cost": "5575"
+        "cost": "5975"
     },
     {
         "name": "item_recipe_guardian_greaves",
@@ -1321,14 +1324,18 @@
     },
     {
         "name": "item_recipe_heavens_halberd",
-        "cost": "200"
+        "cost": "100"
     },
     {
         "name": "item_heavens_halberd",
-        "cost": "3550"
+        "cost": "3500"
     },
     {
         "name": "item_recipe_ring_of_aquila",
+        "cost": "0"
+    },
+    {
+        "name": "item_ring_of_aquila",
         "cost": "0"
     },
     {
@@ -1381,6 +1388,14 @@
     },
     {
         "name": "item_mutation_tombstone",
+        "cost": "0"
+    },
+    {
+        "name": "item_super_blink",
+        "cost": "0"
+    },
+    {
+        "name": "item_pocket_tower",
         "cost": "0"
     },
     {
@@ -1465,6 +1480,10 @@
     },
     {
         "name": "item_ironwood_tree",
+        "cost": "0"
+    },
+    {
+        "name": "item_mango_tree",
         "cost": "0"
     },
     {
@@ -1884,6 +1903,26 @@
         "cost": "0"
     },
     {
+        "name": "item_tier1_token",
+        "cost": "0"
+    },
+    {
+        "name": "item_tier2_token",
+        "cost": "0"
+    },
+    {
+        "name": "item_tier3_token",
+        "cost": "0"
+    },
+    {
+        "name": "item_tier4_token",
+        "cost": "0"
+    },
+    {
+        "name": "item_tier5_token",
+        "cost": "0"
+    },
+    {
         "name": "item_vindicators_axe",
         "cost": "0"
     },
@@ -1953,6 +1992,14 @@
     },
     {
         "name": "item_roshans_banner",
+        "cost": "0"
+    },
+    {
+        "name": "item_black_grimoire",
+        "cost": "0"
+    },
+    {
+        "name": "item_grisgris",
         "cost": "0"
     }
 ]

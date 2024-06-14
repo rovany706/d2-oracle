@@ -9,6 +9,7 @@
         <entry key="D2Oracle.Avalonia/Views/Dashboard/DashboardView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/HeroDiagramsCardView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/HeroStatsCardView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
+        <entry key="D2Oracle.Avalonia/Views/Dashboard/RoshanItemsDropView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/RoshanNextItemsDropView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/Timings/RoshanTimingsView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
         <entry key="D2Oracle.Avalonia/Views/Dashboard/Timings/WisdomRuneTimingsView.axaml" value="D2Oracle.Avalonia/D2Oracle.Avalonia.csproj" />
