@@ -14,16 +14,17 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
     private bool isNotifiedAboutMinRoshanRespawnTime;
     private bool isNotifiedAboutMaxRoshanRespawnTime;
 
-    public RoshanTimerService(IRoshanDeathObserverService roshanDeathObserverService, IDotaGsiService dotaGsiService) : base(dotaGsiService)
+    public RoshanTimerService(IRoshanDeathObserverService roshanDeathObserverService, IDotaGsiService dotaGsiService) :
+        base(dotaGsiService)
     {
         this.roshanDeathObserverService = roshanDeathObserverService;
         this.roshanDeathObserverService.IsRoshanAliveChanged += OnIsRoshanAliveChanged;
     }
-    
+
     public event EventHandler? MinRoshanRespawnTimeReached;
 
     public event EventHandler? MaxRoshanRespawnTimeReached;
-    
+
     public TimeSpan? MinRoshanRespawnClockTime => this.roshanDeathObserverService.RoshanLastDeathClockTime?
         .Add(this.minRoshanRespawnTime);
 
@@ -32,14 +33,22 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
 
     private void OnIsRoshanAliveChanged(object? sender, EventArgs e)
     {
-        this.isNotifiedAboutMinRoshanRespawnTime = this.isNotifiedAboutMaxRoshanRespawnTime = false;
+        if (this.roshanDeathObserverService.IsRoshanAlive == false)
+        {
+            ResetNotifications();
+        }
     }
-    
+
     protected override void OnCurrentMatchIdChanged()
+    {
+        ResetNotifications();
+    }
+
+    private void ResetNotifications()
     {
         this.isNotifiedAboutMinRoshanRespawnTime = this.isNotifiedAboutMaxRoshanRespawnTime = false;
     }
-    
+
     protected override void ProcessGameState(GameState? gameState)
     {
         base.ProcessGameState(gameState);
@@ -59,7 +68,7 @@ public class RoshanTimerService : GameStateObserver, IRoshanTimerService
     {
         if (!this.isNotifiedAboutMaxRoshanRespawnTime && currentTime > MaxRoshanRespawnClockTime)
         {
-            this.roshanDeathObserverService.IsRoshanAlive = true;  // Roshan 100% respawned
+            this.roshanDeathObserverService.IsRoshanAlive = true; // Roshan 100% respawned
             MaxRoshanRespawnTimeReached?.Invoke(this, EventArgs.Empty);
             this.isNotifiedAboutMaxRoshanRespawnTime = true;
         }

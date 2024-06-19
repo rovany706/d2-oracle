@@ -1,7 +1,7 @@
 ﻿using D2Oracle.Core.Resources;
 using D2Oracle.Core.Services.DotaKnowledge.Models;
 
-namespace D2Oracle.Core.Services.Timers.Roshan;
+namespace D2Oracle.Core.Services.DotaKnowledge;
 
 public class RoshanDeathItemProvider
 {
