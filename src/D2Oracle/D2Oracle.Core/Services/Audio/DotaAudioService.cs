@@ -8,7 +8,7 @@ public class DotaAudioService : IDotaAudioService
 
     public Task PlaySoundAsync(DotaSoundType soundType)
     {
-        var path = Path.Combine(Constants.ResourcesFolderPath, DotaSounds.DotaSoundsFileNames[soundType]);
+        var path = Path.Combine(Constants.ResourcesFolderPath, Constants.SoundsResourcesFolder, DotaSounds.DotaSoundsFileNames[soundType]);
 
         return this.player.Play(path);
     }

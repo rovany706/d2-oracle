@@ -34,7 +34,9 @@ public static class DependencyInjection
     public static IServiceCollection AddAppServices(this IServiceCollection services)
     {
         services.AddSingleton<IDotaGsiService, DotaGsiService>();
+        services.AddSingleton<IRoshanDeathObserverService, RoshanDeathObserverService>();
         services.AddSingleton<IRoshanTimerService, RoshanTimerService>();
+        services.AddSingleton<IRoshanItemDropService, RoshanItemDropService>();
         services.AddSingleton<IDotaAudioService, DotaAudioService>();
         services.AddSingleton<IDotaKnowledgeService, DotaKnowledgeService>();
         services.AddSingleton<INetWorthCalculator, NetWorthCalculator>();
@@ -58,6 +60,7 @@ public static class DependencyInjection
         services.AddTransient<RoshanTimingsViewModel>();
         services.AddTransient<WisdomRuneTimingsViewModel>();
         services.AddTransient<DotaConnectionSettingsViewModel>();
+        services.AddTransient<RoshanItemsDropViewModel>();
 
         return services;
     }
