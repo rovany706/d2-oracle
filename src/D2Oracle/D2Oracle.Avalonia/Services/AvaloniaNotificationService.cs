@@ -16,6 +16,6 @@ public class AvaloniaNotificationService : INotificationService
     public void ShowNotification(string title, string message)
     {
         var notification = new Notification(title, message);
-        this.mainWindow.WindowNotificationManager.Show(notification);
+        this.mainWindow.WindowNotificationManager?.Show(notification);
     }
 }

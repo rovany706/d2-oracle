@@ -45,7 +45,10 @@ public class HeroDiagramsCardViewModel : GameStateViewModelBase
                 Mapping = (sample, chartPoint) =>
                     chartPoint.Coordinate = new Coordinate(sample.ClockTime, sample.NetWorth),
                 LineSmoothness = 0,
-                GeometrySize = 0
+                GeometrySize = 0,
+                Stroke = new SolidColorPaint(SKColor.Parse("#D03A2F")) {StrokeThickness = 3},
+                Fill = new SolidColorPaint(SKColor.Parse("#32D03A2F")),
+                GeometryStroke = new SolidColorPaint(SKColor.Parse("#D03A2F"))
             }
         };
 

@@ -14,7 +14,7 @@ public class DotaConfigInstallationService : IDotaConfigInstallationService
         this.fileSystem = fileSystem;
     }
     
-    public async Task InstallConfigAsync(string dotaPath)
+    public Task InstallConfigAsync(string dotaPath)
     {
         var gsiFolder = this.fileSystem.Path.Combine(dotaPath, ConfigFolder, GsiConfigFolder);
         this.fileSystem.Directory.CreateDirectory(gsiFolder);
@@ -22,10 +22,10 @@ public class DotaConfigInstallationService : IDotaConfigInstallationService
         
         if (this.fileSystem.File.Exists(gsiFilePath))
         {
-            return;
+            return Task.CompletedTask;
         }
         
-        await this.fileSystem.File.WriteAllTextAsync(gsiFilePath, Resources.Resources.GsiFileContent);
+        return this.fileSystem.File.WriteAllTextAsync(gsiFilePath, Resources.Resources.GsiFileContent);
     }
 
     public bool IsCorrectDotaPath(string path)

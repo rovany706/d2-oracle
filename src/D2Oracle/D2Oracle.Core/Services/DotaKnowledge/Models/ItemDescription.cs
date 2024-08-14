@@ -1,4 +1,4 @@
-﻿namespace D2Oracle.Core.Services.DotaKnowledge;
+﻿namespace D2Oracle.Core.Services.DotaKnowledge.Models;
 
 public record ItemDescription(
     string Name,
