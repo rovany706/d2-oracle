@@ -421,11 +421,11 @@
     },
     {
         "name": "item_recipe_phylactery",
-        "cost": "200"
+        "cost": "400"
     },
     {
         "name": "item_phylactery",
-        "cost": "2400"
+        "cost": "2600"
     },
     {
         "name": "item_recipe_angels_demise",
@@ -433,7 +433,7 @@
     },
     {
         "name": "item_angels_demise",
-        "cost": "5000"
+        "cost": "5200"
     },
     {
         "name": "item_grandmasters_glaive",
@@ -573,7 +573,7 @@
     },
     {
         "name": "item_recipe_urn_of_shadows",
-        "cost": "375"
+        "cost": "280"
     },
     {
         "name": "item_urn_of_shadows",
@@ -860,15 +860,12 @@
         "cost": "6301"
     },
     {
-        "name": "item_combo_breaker"
-    },
-    {
         "name": "item_refresher_shard",
         "cost": "1000"
     },
     {
         "name": "item_recipe_spirit_vessel",
-        "cost": "1200"
+        "cost": "900"
     },
     {
         "name": "item_spirit_vessel",
@@ -1244,11 +1241,11 @@
     },
     {
         "name": "item_recipe_solar_crest",
-        "cost": "600"
+        "cost": "500"
     },
     {
         "name": "item_solar_crest",
-        "cost": "2700"
+        "cost": "2600"
     },
     {
         "name": "item_recipe_pavise",
@@ -1335,10 +1332,6 @@
         "cost": "0"
     },
     {
-        "name": "item_ring_of_aquila",
-        "cost": "0"
-    },
-    {
         "name": "item_recipe_tranquil_boots",
         "cost": "0"
     },
@@ -1388,14 +1381,6 @@
     },
     {
         "name": "item_mutation_tombstone",
-        "cost": "0"
-    },
-    {
-        "name": "item_super_blink",
-        "cost": "0"
-    },
-    {
-        "name": "item_pocket_tower",
         "cost": "0"
     },
     {
@@ -1475,15 +1460,7 @@
         "cost": "0"
     },
     {
-        "name": "item_recipe_ironwood_tree",
-        "cost": "1"
-    },
-    {
         "name": "item_ironwood_tree",
-        "cost": "0"
-    },
-    {
-        "name": "item_mango_tree",
         "cost": "0"
     },
     {
@@ -1900,26 +1877,6 @@
     },
     {
         "name": "item_muertas_gun",
-        "cost": "0"
-    },
-    {
-        "name": "item_tier1_token",
-        "cost": "0"
-    },
-    {
-        "name": "item_tier2_token",
-        "cost": "0"
-    },
-    {
-        "name": "item_tier3_token",
-        "cost": "0"
-    },
-    {
-        "name": "item_tier4_token",
-        "cost": "0"
-    },
-    {
-        "name": "item_tier5_token",
         "cost": "0"
     },
     {
