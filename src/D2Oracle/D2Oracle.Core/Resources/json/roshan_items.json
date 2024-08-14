@@ -5,10 +5,10 @@
   },
   {
     "day_items": [ "item_aegis", "item_roshans_banner" ],
-    "night_items": [ "item_aegis", "item_cheese" ]
+    "night_items": [ "item_aegis", "item_roshans_banner" ]
   },
   {
-    "day_items": [ "item_aegis", "item_roshans_banner", "item_refresher_shard" ],
-    "night_items": [ "item_aegis", "item_cheese", "item_ultimate_scepter_roshan" ]
+    "day_items": [ "item_aegis", "item_roshans_banner", "item_refresher_shard", "item_cheese" ],
+    "night_items": [ "item_aegis", "item_roshans_banner", "item_refresher_shard", "item_ultimate_scepter_roshan" ]
   }
 ]
