@@ -1,3 +1,4 @@
+
 namespace D2Oracle.Core.Services.Timers.Roshan;
 
 public interface IRoshanTimerService
@@ -6,13 +7,7 @@ public interface IRoshanTimerService
 
     event EventHandler MaxRoshanRespawnTimeReached;
 
-    event EventHandler RoshanLastDeathClockTimeChanged;
-    
     TimeSpan? MinRoshanRespawnClockTime { get; }
 
     TimeSpan? MaxRoshanRespawnClockTime { get; }
-    
-    TimeSpan? RoshanLastDeathClockTime { get; }
-    
-    bool IsRoshanAlive { get; }
 }

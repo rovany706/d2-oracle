@@ -23,10 +23,13 @@ public class TimingsCardViewModel : ViewModelBase
     }
 
     public TimingsCardViewModel(IDotaGsiService dotaGsiService,
-        RoshanTimingsViewModel roshanTimingsViewModel, WisdomRuneTimingsViewModel wisdomRuneTimingsViewModel)
+        RoshanTimingsViewModel roshanTimingsViewModel,
+        WisdomRuneTimingsViewModel wisdomRuneTimingsViewModel,
+        RoshanItemsDropViewModel roshanItemsDropViewModel)
     {
         RoshanTimingsViewModel = roshanTimingsViewModel;
         WisdomRuneTimingsViewModel = wisdomRuneTimingsViewModel;
+        RoshanItemsDropViewModel = roshanItemsDropViewModel;
 
         this.time = dotaGsiService.GameStateObservable
             .Select(GetTimeFromState)
@@ -44,4 +47,5 @@ public class TimingsCardViewModel : ViewModelBase
 
     public RoshanTimingsViewModel RoshanTimingsViewModel { get; }
     public WisdomRuneTimingsViewModel WisdomRuneTimingsViewModel { get; }
+    public RoshanItemsDropViewModel RoshanItemsDropViewModel { get; }
 }

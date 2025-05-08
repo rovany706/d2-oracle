@@ -17,7 +17,7 @@ public class DotaConnectionSettingsViewModel : ViewModelBase
         this.filePickerService = filePickerService;
     }
 
-    public async void AutomaticInstall()
+    public async Task AutomaticInstall()
     {
         var result = await this.filePickerService.OpenFolderPickerAsync(Resources.Resources.SelectDota2Folder);
 
